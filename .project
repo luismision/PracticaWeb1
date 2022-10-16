@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
+<<<<<<< HEAD
 	<name>PracticaTiw1</name>
 	<comment></comment>
 	<projects>
@@ -7,5 +8,20 @@
 	<buildSpec>
 	</buildSpec>
 	<natures>
+=======
+	<name>PracticaWeb1</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.wst.validation.validationbuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
+>>>>>>> branch 'webpract1' of git@github.com:luismision/PracticaWeb1.git
 	</natures>
 </projectDescription>
