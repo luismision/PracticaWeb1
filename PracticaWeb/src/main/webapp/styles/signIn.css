@@ -16,10 +16,15 @@ body {
   .login-card-img {
     border-radius: 0;
     position: absolute;
-    width: 100%;
-    height: 100%;
+    width: 10%;
+    height: 10%;
+    
     -o-object-fit: cover;
-       object-fit: cover; }
+       object-fit: cover;
+      
+       
+        }
+    
   .login-card .card-body {
     padding: 85px 60px 60px; }
     @media (max-width: 422px) {

@@ -7,7 +7,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Login</title>
+  <title>SignIn</title>
   <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -18,9 +18,11 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-6 login-section-wrapper">
+        <a href = "/PracticaWeb"><img id = "logo-img" alt="logo" src="/PracticaWeb/images/logo.png"></a>
           <div class="login-wrapper my-auto">
             <h1 class="login-title">Sign In</h1>
-            <c:if test = "${requestScope.wrongField}"> Nombre de usuario o contraseña incorrectos<br></c:if> 
+            <c:if test = "${requestScope.wrongName}"> Ese nombre de usuario ya existe<br></c:if>
+            <c:if test = "${requestScope.wrongPassword}"> Las contraseñas no coinciden <br></c:if> 
             <form action="/PracticaWeb/signIn" method = "post">
               <div class="form-group">
                 <label for="userName">Nombre de usuario</label>
@@ -28,19 +30,23 @@
               </div>
               <div class="form-group">
                 <label for="fullName">Nombre completo</label>
-                <input type="text" name="name" id="fullName" class="form-control" placeholder="Su nombre y apellidos" required = "required">
+                <input type="text" name="fullName" id="fullName" class="form-control" placeholder="Su nombre y apellidos" required = "required">
               </div>
               <div class="form-group">
                 <label for="address">Dirección</label>
-                <input type="text" name="address" id="address" class="form-control" placeholder="Ej: Avenida de la albufera" required = "required">
+                <input type="text" name="address" id="address" class="form-control" placeholder="Ej: Avenida de la albufera"  required = "required">
               </div>
               <div class="form-group">
-                <label for="phone">Telefono</label>
-                <input type="tel" name="phone" id="phone" class="form-control" placeholder="Ej: 633453783" required = "required" pattern = "[0-9]{9}">
+                <label for="phone">Teléfono</label>
+                <input type="tel" name="phone" id="phone" class="form-control" placeholder="Ej: 633453783" required = "required" maxlength = "9" pattern = "[0-9]{9}">
               </div>
               <div class="form-group mb-4">
                 <label for="password">Contraseña</label>
-                <input type="password" name="password" id="password" class="form-control" placeholder="Introduzca su contraseña" required = "required">
+                <input type="password" name="password" id="password" class="form-control"  placeholder="Introduzca su contraseña" minlength = "5" maxlength = "20" required = "required">
+              </div>	
+              <div class="form-group mb-4">
+                <label for="password2">Confirme su contraseña</label>
+                <input type="password" name="password2" id="password2" class="form-control"  placeholder="Repita su contraseña" minlength = "5" maxlength = "20" required = "required">
               </div>
               <input name="login" id="login" class="btn btn-block login-btn" type="submit" value="Registrarse">
             </form>
@@ -48,7 +54,7 @@
           </div>
         </div>
         <div class="col-sm-6 px-0 d-none d-sm-block">
-          <img src="/PracticaWeb/images/signIn.jpg" alt="login image" class="login-img">
+          <img src="/PracticaWeb/images/stadio.jpg" alt="login image" class="login-img">
         </div>
       </div>
     </div>

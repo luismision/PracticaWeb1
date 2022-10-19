@@ -1,6 +1,7 @@
 package com.practica1_81_07.filters;
 
 import java.io.IOException;
+import java.sql.Connection;
 
 import javax.annotation.Resource;
 import javax.servlet.Filter;
@@ -11,48 +12,51 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpFilter;
+import javax.servlet.http.HttpServletRequest;
 import javax.sql.DataSource;
 
 import com.practica1_81_07.manager.ManagerAccount;
 
 /**
- * Servlet Filter implementation class LogInFilter
+ * Servlet Filter implementation class SignInFilter
  */
-@WebFilter("/logIn")
-public class LogInFilter extends HttpFilter implements Filter {
-       
+@WebFilter({"/signIn"})
+public class SignInFilter extends HttpFilter implements Filter {
 	private static final long serialVersionUID = 1L;
+
 	@Resource(mappedName = "jdbc/tiwds")
 	DataSource ds; 
+
 	
 	
-    public LogInFilter() {
+    public SignInFilter() {
         super();
         // TODO Auto-generated constructor stub
     }
-
-	/**
-	 * @see Filter#destroy()
-	 */
+    
 	public void destroy() {
-		// TODO Auto-generated method stub
 	}
 
 	/**
 	 * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
 	 */
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-		if (!ManagerAccount.userExists(request.getParameter("userName"), ds)) {
+		String userName = request.getParameter("userName");	
+		if(ManagerAccount.userExists(userName, ds)) {
 			request.setAttribute("wrongName", true);
-			request.getRequestDispatcher("logIn.jsp").forward(request, response);
+			request.getRequestDispatcher("signIn.jsp").forward(request, response);
+			return;
+		}
+		if(!request.getParameter("password").equals(request.getParameter("password2"))){
+			request.setAttribute("wrongPassword", true);
+			request.getRequestDispatcher("signIn.jsp").forward(request, response);
 			return;
 		}
 		chain.doFilter(request, response);
+
 	}
 
-	/**
-	 * @see Filter#init(FilterConfig)
-	 */
+
 	public void init(FilterConfig fConfig) throws ServletException {
 		// TODO Auto-generated method stub
 	}

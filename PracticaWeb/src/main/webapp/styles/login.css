@@ -59,16 +59,16 @@ body {
       color: #b0adad; }
   .login-wrapper .login-btn {
     padding: 13px 20px;
-    background-color: #fdbb28;
+    background: linear-gradient(to right,#4F049D,#CB1FDD);
     border-radius: 0;
     font-size: 20px;
     font-weight: bold;
     color: #fff;
     margin-bottom: 14px; }
     .login-wrapper .login-btn:hover {
-      border: 1px solid #fdbb28;
+      border: 1px solid #000000;
       background-color: #fff;
-      color: #fdbb28; }
+      color: #000000; }
   .login-wrapper a.forgot-password-link {
     color: #080808;
     font-size: 14px;
@@ -92,9 +92,16 @@ body {
 .login-img {
   width: 100%;
   height: 100vh;
+  filter: blur (4px); 
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: left;
-     object-position: left; }
-
+     object-position: left; 
+     
+     }
+#logo-img{
+	width: 80px;
+	
+  	
+}
 /*# sourceMappingURL=login.css.map */

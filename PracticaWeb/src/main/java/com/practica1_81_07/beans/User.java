@@ -1,7 +1,10 @@
 package com.practica1_81_07.beans;
 
-public class User {
-	
+import java.io.Serializable;
+
+public class User implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 	String userName; 
 	String fullName; 
 	String address; 
@@ -9,7 +12,7 @@ public class User {
 	int phone;
 	//ArrayList<Tickets> tickets; 
 	
-	public User(String userName, String fullName, String address, String password, int phone) {
+	public User(String userName, String password, String fullName, String address, int phone) {
 		super();
 		this.userName = userName;
 		this.fullName = fullName;
@@ -50,3 +53,4 @@ public class User {
 	} 
 	
 }
+

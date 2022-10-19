@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -14,20 +15,27 @@
 </head>
         <nav id = "header">
             <ul>    
-                <li id = "logo_container" ><a href ="/PracticaWeb" target="_blank"><img  id = "logo"  src = "/PracticaWeb/images/logo.png" alt="logo"></a><a href ="/PracticaWeb"><img  id = "instagram" alt="insta" src = "/PracticaWeb/images/instagram.jpg"></a><a href ="index.html"><img alt="twitter"id = "twitter"src = "images/twitter.png"></a><a href ="index.html"><img alt="facebook" id = "facebook" src = "images/facebook.png"></a></li>
+                <li id = "logo_container" >
+                <a href ="/PracticaWeb" target="_blank">
+                <img  id = "logo"  src = "/PracticaWeb/images/logo.png" alt="logo"></a>
+                </li>
                
-                <li id = "search_container" onpointerenter="">
-                    <form id = "searcher">
+                <li id = "search_container" >
+                    <form id = "searcher" action ="" method = "post">
                         <label><input id="searchterm" type="text" placeholder="Buscar..."/>ㅤ</label>
                         <button id="buttonsearch" type = "submit">
-                            <a id = "href-busqueda" href="#"><img id = "lupa" alt="buscador"src = "/PracticaWeb/images/lupa.png"></a>
+                            <img id = "lupa" alt="buscador"src = "/PracticaWeb/images/lupa.png">
                         </button>
                     </form>
                 </li> 
-                <li id = "sesion_container"> 
-                    <a href = "/PracticaWeb/logInPage"><button rid = "log_in_button" class = "stylebutton">INICIAR SESIÓN</button></a>
-
-                </li>     
+                <li id = "sesion_container">
+                	<ul>
+	               		<li id = "username_container"><c:if test = "${!empty sessionScope.currentUser}"> <h2><c:out value="${sessionScope.currentUser.userName}"/></h2></c:if></li>
+	                	<li id = "log_out_button_container"><c:if test = "${!empty sessionScope.currentUser}"><a href = "/PracticaWeb/logOut"><button id = "log_out_button" class = "stylebutton">CERRAR SESIÓN</button></a></c:if></li>
+                	</ul> 
+                    <c:if test = "${empty sessionScope.currentUser}"> <a href = "/PracticaWeb/logInPage"><button id = "log_in_button" class = "stylebutton">INICIAR SESIÓN</button></a></c:if>
+					  
+                </li>  
             </ul>
             
         </nav>

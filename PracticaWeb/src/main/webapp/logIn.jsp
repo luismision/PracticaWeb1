@@ -18,11 +18,11 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-6 login-section-wrapper">
+          <a href = "/PracticaWeb"><img id = "logo-img" alt="logo" src="/PracticaWeb/images/logo.png"></a>
           <div class="login-wrapper my-auto">
             <h1 class="login-title">Log in</h1>
-         
-            <c:if test = "${requestScope.wrongField}">Nombre de usuario o contraseña incorrectos<br></c:if> 
-
+            <c:if test = "${!empty requestScope.wrongName}"> No existe un usuario con ese nombre<br></c:if> 
+			<c:if test = "${!empty requestScope.wrongPassword}">Contraseña incorrecta<br></c:if> 
             <form action="/PracticaWeb/logIn" method = "post">
               <div class="form-group">
                 <label for="userName">Nombre de usuario</label>
@@ -38,7 +38,7 @@
           </div>
         </div>
         <div class="col-sm-6 px-0 d-none d-sm-block">
-          <img src="/PracticaWeb/images/login.jpg" alt="login image" class="login-img">
+          <img src="/PracticaWeb/images/concierto.jpg" alt="login image" class="login-img">
         </div>
       </div>
     </div>

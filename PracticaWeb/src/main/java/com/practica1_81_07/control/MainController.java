@@ -1,34 +1,41 @@
 package com.practica1_81_07.control;
 
-import java.io.IOException;
-import java.io.PrintWriter;
 
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import javax.annotation.Resource;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.sql.DataSource;
 
+import com.practica1_81_07.beans.User;
 import com.practica1_81_07.manager.ManagerAccount;
 
-import javax.servlet.RequestDispatcher;
+/**
+aaaaaaaaaaaaaaaaa */
 
 
 /**
  * Servlet implementation class MainController
  */
-@WebServlet({"/logIn", "/signIn", "/logOut", "/logInPage", "/signInPage"})
+@WebServlet({"/logIn", "/logOut","/signIn", "/logInPage", "/signInPage"})
 public class MainController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+	@Resource(mappedName = "jdbc/tiwds")
+	DataSource ds; 
+
     public MainController() {
         super();
         // TODO Auto-generated constructor stub
     }
-
+    
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -44,7 +51,6 @@ public class MainController extends HttpServlet {
 		// TODO Auto-generated method stub
 		switch (request.getServletPath()){
 			case "/logInPage":
-		
 				request.getRequestDispatcher("logIn.jsp").forward(request,response);
 				break;
 				
@@ -53,16 +59,27 @@ public class MainController extends HttpServlet {
 				break;
 				
 			case "/logIn":
-				request.getRequestDispatcher("index.jsp").forward(request,response);
+				if (ManagerAccount.logIn(request, ds)) {
+					request.getRequestDispatcher("index.jsp").forward(request,response);
+				}
+				else {
+					request.getRequestDispatcher("logIn.jsp").forward(request,response);
+				}
 				break; 
 				
 			case "/logOut": 
-				System.out.println("HhoLOADS");
+				ManagerAccount.logOut(request);
+				request.getRequestDispatcher("index.jsp").forward(request,response);
 				break; 
 				
-			case "/signUp":
-				System.out.println("ADIOS");
-				break; 
+			case "/signIn":
+				ManagerAccount.signIn(request, ds);
+				request.getRequestDispatcher("index.jsp").forward(request,response);
+				break;
+				
+			case "/index":
+				request.getRequestDispatcher("index.jsp").forward(request,response);
+				break;
 				
 			default: 
 				System.out.println("Error");
