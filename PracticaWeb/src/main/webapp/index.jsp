@@ -33,7 +33,7 @@
 	               		<li id = "username_container"><c:if test = "${!empty sessionScope.currentUser}"> <h2><c:out value="${sessionScope.currentUser.userName}"/></h2></c:if></li>
 	                	<li id = "log_out_button_container"><c:if test = "${!empty sessionScope.currentUser}"><a href = "/PracticaWeb/logOut"><button id = "log_out_button" class = "stylebutton">CERRAR SESIÓN</button></a></c:if></li>
                 	</ul> 
-                    <c:if test = "${empty sessionScope.currentUser}"> <a href = "/PracticaWeb/logInPage"><button id = "log_in_button" class = "stylebutton">INICIAR SESIÓN</button></a></c:if>
+                    <c:if test = "${empty sessionScope.currentUser}"> <a href = "/PracticaWeb/logIn.jsp"><button id = "log_in_button" class = "stylebutton">INICIAR SESIÓN</button></a></c:if>
 					  
                 </li>  
             </ul>

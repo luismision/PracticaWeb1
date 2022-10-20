@@ -34,7 +34,7 @@
               </div>
               <input name="login" id="login" class="btn btn-block login-btn" type="submit" value="Iniciar sesion">
             </form>
-            <p class="login-wrapper-footer-text">¿No tienes una cuenta? <a href="/PracticaWeb/signInPage" class="text-reset">Registrate aquí</a></p>
+            <p class="login-wrapper-footer-text">¿No tienes una cuenta? <a href="/PracticaWeb/signIn.jsp" class="text-reset">Registrate aquí</a></p>
           </div>
         </div>
         <div class="col-sm-6 px-0 d-none d-sm-block">
