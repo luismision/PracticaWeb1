@@ -48,6 +48,7 @@ public class LogInHandler implements IHandler {
     			return "logIn.jsp"; 
     		}
     		session.setAttribute("currentUser", user);
+    		System.out.print("ola");
     		return "index.jsp";
 
 		}catch (NamingException e1) {

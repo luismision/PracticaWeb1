@@ -23,6 +23,7 @@ import com.practica1_81_07.handlers.IHandler;
 import com.practica1_81_07.handlers.LogInHandler;
 import com.practica1_81_07.manager.ManagerAccount;
 import com.practica1_81_07.handlers.LogOutHandler;
+import com.practica1_81_07.handlers.SignInHandler;
 
 
 
@@ -35,7 +36,6 @@ public class MainController extends HttpServlet {
        
 	@Resource(mappedName = "jdbc/tiwds")
 	DataSource ds;
-	Map<String,String> mapGet;
 	Map<String, IHandler> map; 
 	
 	
@@ -48,7 +48,7 @@ public class MainController extends HttpServlet {
     	map = new HashMap<String,IHandler>();
     	map.put("/logIn", new LogInHandler());
     	map.put("/logOut", new LogOutHandler());
-    	//map.put("/signIn", new SignInHandler());
+    	map.put("/signIn", new SignInHandler());
     }
     
     
@@ -57,7 +57,7 @@ public class MainController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String action = request.getServletPath();
+		doPost(request, response);
 	}
 	
 	/**
