@@ -4,5 +4,4 @@
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
-  <jdbc-resource enabled="true" jndi-name="jdbc/tiwds" pool-name="MySql8"/>
 </web-app>
