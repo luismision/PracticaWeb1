@@ -34,7 +34,8 @@ public class MainController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	@Resource(mappedName = "jdbc/tiwds")
-	DataSource ds; 
+	DataSource ds;
+	Map<String,String> mapGet;
 	Map<String, IHandler> map; 
 	
 	
@@ -56,8 +57,7 @@ public class MainController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doPost(request,response);
+		String action = request.getServletPath();
 	}
 	
 	/**
