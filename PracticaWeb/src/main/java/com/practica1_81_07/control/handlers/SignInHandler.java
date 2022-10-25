@@ -1,4 +1,4 @@
-package com.practica1_81_07.handlers;
+package com.practica1_81_07.control.handlers;
 
 import java.sql.Connection;
 import java.sql.SQLException;

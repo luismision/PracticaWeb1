@@ -12,6 +12,13 @@
     width: 80vw;
     margin-top: 63px;
 }
+.imagenEvento{
+	padding-top:80px;
+	
+}
+ul {
+    list-style: none;
+}
 
 h1 {
     font-family: Poppins;
@@ -637,6 +644,58 @@ html, body {
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 63px;
+
+}
+#ultimas-container ul{
+	display:flex;
+}
+.imagen-evento-container{
+	width: 25vw;
+	padding-left:5vw;
+}
+.imagen-evento-container img{
+	width: 10vw;
+	height: 10vw;
+}
+.desc-evento-container{
+	width: 20vw;
+}
+.desc-evento-container div{
+    justify-content: space-between;
+    display: flex;
+}
+.button-evento-container{
+	width: 20vw;
+	padding-left:2vw;
+	padding-top:2.5vw;
+}
+.button-evento-container button{
+	height:3vw ;
+    width:15vw ;
+    font-size: 1vw;
+}
+.ultimo-evento{
+	height: 14vw;
+	padding-top: 4vh;
+	margin: auto;
+	border-bottom: 1px solid black;
+}
+
+.ultimo-evento h2{
+    font-family: Poppins;
+    margin-bottom: 3px;
+    font-size: 1.5vw;
+}
+
+.ultimo-evento p{
+    height: 15%;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: .4vw;
+    font-family: Poppins;
+    font-size: 0.9vw;
 }
 
 .ultima-exp{
@@ -648,7 +707,9 @@ html, body {
     flex-wrap: wrap;
 
 }
-
+#ultimas-experiencias h1{
+	text-align:center;
+}
     
 .ultima-exp .img-container{
     width:50%;
@@ -2519,7 +2580,9 @@ html, body {
     font-size: Poppins;
 }
 
-
+.imagenEvento{
+	margin-top: 500px;
+}
 
 #Colecciones-pop-up {
     left: 32.25%;

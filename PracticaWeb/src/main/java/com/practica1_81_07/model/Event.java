@@ -2,7 +2,6 @@ package com.practica1_81_07.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.util.List;
 
 
 /**
@@ -20,14 +19,13 @@ public class Event implements Serializable {
 
 	private String category;
 
+	private String description;
+
 	@Lob
 	private byte[] imagen;
-
+	
+	
 	private String room;
-
-	//bi-directional many-to-one association to Ticket
-	@OneToMany(mappedBy="event")
-	private List<Ticket> tickets;
 
 	public Event() {
 	}
@@ -37,15 +35,24 @@ public class Event implements Serializable {
 	}
 
 	public void setId(EventPK id) {
-		this.id = id;
+		this.id = id; 
 	}
 
+	
 	public String getCategory() {
 		return this.category;
 	}
 
 	public void setCategory(String category) {
 		this.category = category;
+	}
+
+	public String getDescription() {
+		return this.description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public byte[] getImagen() {
@@ -62,28 +69,6 @@ public class Event implements Serializable {
 
 	public void setRoom(String room) {
 		this.room = room;
-	}
-
-	public List<Ticket> getTickets() {
-		return this.tickets;
-	}
-
-	public void setTickets(List<Ticket> tickets) {
-		this.tickets = tickets;
-	}
-
-	public Ticket addTicket(Ticket ticket) {
-		getTickets().add(ticket);
-		ticket.setEvent(this);
-
-		return ticket;
-	}
-
-	public Ticket removeTicket(Ticket ticket) {
-		getTickets().remove(ticket);
-		ticket.setEvent(null);
-
-		return ticket;
 	}
 
 }

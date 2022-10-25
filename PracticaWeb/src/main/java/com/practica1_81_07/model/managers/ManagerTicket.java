@@ -1,6 +1,6 @@
-package com.practica1_81_07.model;
+package com.practica1_81_07.model.managers;
 
-import java.util.List;
+
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -8,25 +8,26 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-public class ManagerUser {
+import com.practica1_81_07.model.Ticket;
+
+public class ManagerTicket implements ManagerJpa<Ticket>{
 
 	private EntityManager em;
 	private EntityTransaction et;
 	
-	public ManagerUser() {
+	public ManagerTicket() {
 		
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("PracticaWebShared");
 		em = emf.createEntityManager();
 		et = em.getTransaction();
 	}
 	
-	
-	public User insert(User user) {
-		
+
+	public Ticket insert(Ticket ticket) {
 		try {
 			et.begin();
 			
-			em.persist(user);
+			em.persist(ticket);
 			
 			et.commit();
 		} catch (Exception e) {
@@ -34,33 +35,44 @@ public class ManagerUser {
 				et.rollback();
 			}
 		} 
-		return user;
+		return ticket;
 	}
 
-	public User findByName(String name){
-		User user; 
-		Query q = em.createNamedQuery("User.findByName");
+	public boolean delete(Ticket ticket) {
+		
+		try {
+			et.begin();
+			
+			em.remove(ticket);
+			
+			et.commit();
+		} catch (Exception e) {
+			if(et!= null) {
+				et.rollback();
+			}
+			return false;
+		} 
+		return true;
+	}
+
+	public Ticket findByName(String name){
+		Ticket ticket; 
+		Query q = em.createNamedQuery("Ticket.findByName");
 		q.setParameter("name", name);
 		try{ 
-			user = (User)q.getSingleResult();
+			ticket = (Ticket)q.getSingleResult();
 		}catch(Exception e) {
 			return null; 
 		}
-		return user;
+		return ticket;
 	}
-	
-	public boolean checkCredentials(String name, String password) {
-		User user = findByName(name);
-		if (user == null) {
-			return false; 
-		}
-		if (user.getPassword().equals(password)) {
-			return true;  
-		}
-		return false; 
-	
-		
-	}
+
+
+
+
+
+
+
 	
 	
 	

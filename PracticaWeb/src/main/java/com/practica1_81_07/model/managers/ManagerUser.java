@@ -1,6 +1,4 @@
-package com.practica1_81_07.model;
-
-import java.util.List;
+package com.practica1_81_07.model.managers;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -8,12 +6,14 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-public class ManagerEvent {
+import com.practica1_81_07.model.User;
+
+public class ManagerUser implements ManagerJpa<User> {
 
 	private EntityManager em;
 	private EntityTransaction et;
 	
-	public ManagerEvent() {
+	public ManagerUser() {
 		
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("PracticaWebShared");
 		em = emf.createEntityManager();
@@ -21,12 +21,12 @@ public class ManagerEvent {
 	}
 	
 	
-	public Event insert(Event event) {
+	public User insert(User user) {
 		
 		try {
 			et.begin();
 			
-			em.persist(event);
+			em.persist(user);
 			
 			et.commit();
 		} catch (Exception e) {
@@ -34,15 +34,40 @@ public class ManagerEvent {
 				et.rollback();
 			}
 		} 
-		return event;
+		return user;
+	}
+
+	public User findByName(String name){
+		User user; 
+		Query q = em.createNamedQuery("User.findByName");
+		q.setParameter("name", name);
+		try{ 
+			user = (User)q.getSingleResult();
+		}catch(Exception e) {
+			return null; 
+		}
+		return user;
 	}
 	
-	public boolean delete(Event event) {
+	public boolean checkCredentials(String name, String password) {
+		User user = findByName(name);
+		if (user == null) {
+			return false; 
+		}
+		if (user.getPassword().equals(password)) {
+			return true;  
+		}
+		return false; 
+	
 		
+	}
+
+	
+	public boolean delete(User user) {
 		try {
 			et.begin();
 			
-			em.remove(event);
+			em.remove(user);
 			
 			et.commit();
 		} catch (Exception e) {
@@ -53,20 +78,6 @@ public class ManagerEvent {
 		} 
 		return true;
 	}
-
-	public Event findByName(String name){
-		Event event; 
-		Query q = em.createNamedQuery("Ticket.findByName");
-		q.setParameter("name", name);
-		try{ 
-			event = (Event)q.getSingleResult();
-		}catch(Exception e) {
-			return null; 
-		}
-		return event;
-	}
-	
-
 	
 	
 	

@@ -27,8 +27,18 @@ body {
       padding-bottom: 20px;
       min-height: 100vh; } }
 
+
+
+.form-group{
+	display: inline-block; 
+	width: 300px; 
+}
+#description{
+	width: 600px;
+}
+
 .login-wrapper {
-  width: 300px;
+  width: 605px;
   max-width: 100%;
   padding-top: 24px;
   padding-bottom: 24px; }

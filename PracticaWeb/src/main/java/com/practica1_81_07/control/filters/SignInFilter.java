@@ -1,4 +1,4 @@
-package com.practica1_81_07.filters;
+package com.practica1_81_07.control.filters;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -16,10 +16,8 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpFilter;
-import javax.servlet.http.HttpServletRequest;
-import javax.sql.DataSource;
 
-import com.practica1_81_07.model.ManagerUser;
+import javax.sql.DataSource;
 
 
 /**

@@ -1,6 +1,10 @@
 package com.practica1_81_07.model;
 
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 import javax.persistence.*;
 
 /**
@@ -33,11 +37,14 @@ public class EventPK implements Serializable {
 	public void setCity(String city) {
 		this.city = city;
 	}
-	public java.util.Date getDate() {
-		return this.date;
+	public String getDate() {
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");  
+		String strDate = dateFormat.format(this.date); 
+		return strDate;
 	}
-	public void setDate(java.util.Date date) {
-		this.date = date;
+	public void setDate(String date) throws ParseException { 
+	    java.util.Date date1=new SimpleDateFormat("yyyy-mm-dd").parse(date);  
+		this.date = date1;
 	}
 
 	public boolean equals(Object other) {

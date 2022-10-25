@@ -1,6 +1,4 @@
-package com.practica1_81_07.model;
-
-import java.util.List;
+package com.practica1_81_07.model.managers;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -8,12 +6,14 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-public class ManagerTicket{
+import com.practica1_81_07.model.Event;
+
+public class ManagerEvent implements ManagerJpa<Event>{
 
 	private EntityManager em;
 	private EntityTransaction et;
 	
-	public ManagerTicket() {
+	public ManagerEvent() {
 		
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("PracticaWebShared");
 		em = emf.createEntityManager();
@@ -21,11 +21,12 @@ public class ManagerTicket{
 	}
 	
 	
-	public Ticket insert(Ticket ticket) {
+	public Event insert(Event event) {
+		
 		try {
 			et.begin();
 			
-			em.persist(ticket);
+			em.persist(event);
 			
 			et.commit();
 		} catch (Exception e) {
@@ -33,15 +34,15 @@ public class ManagerTicket{
 				et.rollback();
 			}
 		} 
-		return ticket;
+		return event;
 	}
 	
-	public boolean delete(Ticket ticket) {
+	public boolean delete(Event event) {
 		
 		try {
 			et.begin();
 			
-			em.remove(ticket);
+			em.remove(event);
 			
 			et.commit();
 		} catch (Exception e) {
@@ -53,19 +54,21 @@ public class ManagerTicket{
 		return true;
 	}
 
-	public Ticket findByName(String name){
-		Ticket ticket; 
+	public Event findByName(String name){
+		Event event; 
 		Query q = em.createNamedQuery("Ticket.findByName");
 		q.setParameter("name", name);
 		try{ 
-			ticket = (Ticket)q.getSingleResult();
+			event = (Event)q.getSingleResult();
 		}catch(Exception e) {
 			return null; 
 		}
-		return ticket;
+		return event;
 	}
 
 
+
+	
 
 	
 	

@@ -7,5 +7,6 @@
 		<class>com.practica1_81_07.model.Ticket</class>
 		<class>com.practica1_81_07.model.TicketPK</class>
 		<class>com.practica1_81_07.model.User</class>
+
 	</persistence-unit>
 </persistence>
