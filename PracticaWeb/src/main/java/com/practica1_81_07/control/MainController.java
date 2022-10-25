@@ -18,10 +18,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
-import com.practica1_81_07.beans.User;
 import com.practica1_81_07.handlers.IHandler;
 import com.practica1_81_07.handlers.LogInHandler;
-import com.practica1_81_07.manager.ManagerAccount;
 import com.practica1_81_07.handlers.LogOutHandler;
 import com.practica1_81_07.handlers.SignInHandler;
 

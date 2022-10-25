@@ -14,7 +14,6 @@ public class LogOutHandler implements IHandler {
     	if (session.getAttribute("currentUser") != null){
     		session.removeAttribute("currentUser");
     	};
-		
 		return "index.jsp";
 	}
 

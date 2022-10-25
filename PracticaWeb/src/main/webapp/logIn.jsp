@@ -21,8 +21,7 @@
           <a href = "/PracticaWeb"><img id = "logo-img" alt="logo" src="/PracticaWeb/images/logo.png"></a>
           <div class="login-wrapper my-auto">
             <h1 class="login-title">Log in</h1>
-            <c:if test = "${!empty requestScope.wrongName}"> No existe un usuario con ese nombre<br></c:if> 
-			<c:if test = "${!empty requestScope.wrongPassword}">Contraseña incorrecta<br></c:if> 
+            <c:if test = "${!empty requestScope.wrongCredentials}"> Credenciales introducidos incorrectos. Intentelo de nuevo<br></c:if> 
             <form action="/PracticaWeb/logIn" method = "post">
               <div class="form-group">
                 <label for="userName">Nombre de usuario</label>

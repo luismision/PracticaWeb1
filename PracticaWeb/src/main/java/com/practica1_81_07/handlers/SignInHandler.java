@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
-import com.practica1_81_07.beans.User;
+import com.practica1_81_07.model.User;
 
 
 
@@ -27,28 +27,21 @@ public class SignInHandler implements IHandler {
 		HttpSession session = req.getSession(); 
 		User user = null;
 		
-		
 		try {
 			payaraContext = new InitialContext();
 			ds = (DataSource) payaraContext.lookup("jdbc/tiwds");
 	        Connection conn = ds.getConnection();	
 	        Statement st = conn.createStatement();
-	        boolean exists = st.executeQuery("SELECT userName FROM users where userName = '" + req.getParameter("userName") + "';").next();
-	        if (!exists) {
-	        	user = new User(req.getParameter("userName"),
-        			req.getParameter("password"),
-        			req.getParameter("fullName"), 
-        			req.getParameter("address"), 
-        			Integer.parseInt(req.getParameter("phone")));
-
-				st.execute("INSERT INTO USERS VALUES ( '" + user.getUserName() + "','" + user.getPassword() + "','" + user.getFullName() + "','" + user.getAddress() + "'," + user.getPhone() + ");");
-	        	st.close();
-	        	conn.close();
-	        	session.setAttribute("currentUser", user);
-	        	return "index.jsp";
-	        }
-	    	st.close();
-	    	conn.close();
+        	user = new User();
+        	user.setUserName(req.getParameter("userName"));
+        	user.setPassword(req.getParameter("password"));		
+        	user.setAddress(req.getParameter("address"));
+        	user.setPhone(req.getParameter("phone"));
+        	st.execute("INSERT INTO USERS VALUES ( '" + user.getUserName() + "','" + user.getPassword() + "','" + user.getFullName() + "','" + user.getAddress() + "'," + user.getPhone() + ");");
+        	st.close();
+        	conn.close();
+        	session.setAttribute("currentUser", user);
+        	return "index.jsp";
 	    	
         	
     	}catch(SQLTimeoutException e) {

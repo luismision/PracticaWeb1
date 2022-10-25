@@ -12,8 +12,8 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpFilter;
 import javax.sql.DataSource;
+import com.practica1_81_07.model.ManagerUser;
 
-import com.practica1_81_07.manager.ManagerAccount;
 
 /**
  * Servlet Filter implementation class LogInFilter
@@ -22,39 +22,32 @@ import com.practica1_81_07.manager.ManagerAccount;
 public class LogInFilter extends HttpFilter implements Filter {
        
 	private static final long serialVersionUID = 1L;
-	@Resource(mappedName = "jdbc/tiwds")
-	DataSource ds; 
-	
+	ManagerUser MnUser;
 	
     public LogInFilter() {
         super();
         // TODO Auto-generated constructor stub
     }
-
-	/**
-	 * @see Filter#destroy()
-	 */
+    
+	public void init(FilterConfig fConfig) throws ServletException {
+		// TODO Auto-generated method stub
+		MnUser = new ManagerUser();
+	}
+ 
 	public void destroy() {
 		// TODO Auto-generated method stub
 	}
 
-	/**
-	 * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
-	 */
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-		if (!ManagerAccount.userExists(request.getParameter("userName"), ds)) {
-			request.setAttribute("wrongName", true);
+		
+		if (!MnUser.checkCredentials(request.getParameter("userName"), request.getParameter("password"))) {
+			request.setAttribute("wrongCredentials", true);
 			request.getRequestDispatcher("logIn.jsp").forward(request, response);
 			return;
 		}
 		chain.doFilter(request, response);
 	}
 
-	/**
-	 * @see Filter#init(FilterConfig)
-	 */
-	public void init(FilterConfig fConfig) throws ServletException {
-		// TODO Auto-generated method stub
-	}
+	
 
 }

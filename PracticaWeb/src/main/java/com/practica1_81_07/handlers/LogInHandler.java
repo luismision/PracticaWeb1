@@ -14,55 +14,21 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
-import com.practica1_81_07.beans.User;
+import com.practica1_81_07.model.ManagerUser;
+import com.practica1_81_07.model.User;
 
 
 
 public class LogInHandler implements IHandler {
-	
-
-	InitialContext payaraContext;
-	DataSource ds;
-	Connection conn;
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) {
 		HttpSession session = req.getSession(); 
-		User user = null;
+		ManagerUser MnUser  = new ManagerUser();
+		User user = MnUser.findByName(req.getParameter("userName"));  	
+		session.setAttribute("currentUser", user);
+		return "index.jsp";
 
-		
-		try {
-			payaraContext = new InitialContext();
-			ds = (DataSource) payaraContext.lookup("jdbc/tiwds");
-			conn = ds.getConnection();
-        	Statement st = conn.createStatement();
-        	ResultSet rs = st.executeQuery("SELECT * from users where username = '"+ req.getParameter("userName")+ "';");
-			rs.next();
-			System.out.println(rs.getString("password"));
-			if (rs.getString("password").equals(req.getParameter("password"))){
-				System.out.print("llego aqui");
-				user = new User(rs.getString("userName"), rs.getString("password"), rs.getString("fullName"), rs.getString("address"), rs.getInt("phone"));
-			}  
-    		if (user == null) {
-    			req.setAttribute("wrongPassword", true);
-    			return "logIn.jsp"; 
-    		}
-    		session.setAttribute("currentUser", user);
-    		System.out.print("ola");
-    		return "index.jsp";
-
-		}catch (NamingException e1) {
-
-			e1.printStackTrace();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-    	
-    	catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
-	
 	}
 	
 }	

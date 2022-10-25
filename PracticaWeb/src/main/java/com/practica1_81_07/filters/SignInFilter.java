@@ -2,8 +2,12 @@ package com.practica1_81_07.filters;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.SQLTimeoutException;
+import java.sql.Statement;
 
 import javax.annotation.Resource;
+import javax.naming.InitialContext;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -15,7 +19,8 @@ import javax.servlet.http.HttpFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.sql.DataSource;
 
-import com.practica1_81_07.manager.ManagerAccount;
+import com.practica1_81_07.model.ManagerUser;
+
 
 /**
  * Servlet Filter implementation class SignInFilter
@@ -26,13 +31,18 @@ public class SignInFilter extends HttpFilter implements Filter {
 
 	@Resource(mappedName = "jdbc/tiwds")
 	DataSource ds; 
-
 	
 	
     public SignInFilter() {
         super();
         // TODO Auto-generated constructor stub
     }
+    
+    
+	public void init(FilterConfig fConfig) throws ServletException {
+		// TODO Auto-generated method stub
+		
+	}
     
 	public void destroy() {
 	}
@@ -41,8 +51,26 @@ public class SignInFilter extends HttpFilter implements Filter {
 	 * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
 	 */
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-		String userName = request.getParameter("userName");	
-		if(ManagerAccount.userExists(userName, ds)) {
+		InitialContext payaraContext;
+		DataSource ds;
+		boolean exists = true; 
+		try {
+			payaraContext = new InitialContext();
+			ds = (DataSource) payaraContext.lookup("jdbc/tiwds");
+	        Connection conn = ds.getConnection();	
+	        Statement st = conn.createStatement();
+			exists = st.executeQuery("SELECT userName FROM users where userName = '" + request.getParameter("userName") + "';").next();
+			st.close();
+        	conn.close();
+		}catch(SQLTimeoutException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		if(exists) {
 			request.setAttribute("wrongName", true);
 			request.getRequestDispatcher("signIn.jsp").forward(request, response);
 			return;
@@ -57,8 +85,6 @@ public class SignInFilter extends HttpFilter implements Filter {
 	}
 
 
-	public void init(FilterConfig fConfig) throws ServletException {
-		// TODO Auto-generated method stub
-	}
+
 
 }
