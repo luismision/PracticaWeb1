@@ -15,8 +15,8 @@ import java.math.BigDecimal;
 public class Ticket implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@EmbeddedId
-	private TicketPK id;
+	@Id
+	private String id;
 
 	private BigDecimal prize;
 
@@ -37,11 +37,11 @@ public class Ticket implements Serializable {
 	public Ticket() {
 	}
 
-	public TicketPK getId() {
+	public String getId() {
 		return this.id;
 	}
 
-	public void setId(TicketPK id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

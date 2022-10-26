@@ -1,4 +1,3 @@
-
 *{
     margin: 0;
     padding: 0;
@@ -6,29 +5,37 @@
 
 }
 
+
+
 .container{
 	
     padding-top: 20px;
     margin: auto;
     width: 80vw;
     margin-top: 63px;
+    text-align: center;
     
 }
-
-.imagenBlur{
-	height:50%; 
+.containerfull{
+	
+    padding-top: 10px;
     width: 100%;
-    position: absolute;
+    margin-top: 63px;
+}
+.imagenBlur{
+	height:50vh; 
+    width: 100%;
+    
     top: 10%;
     left: 0%;
-  	filter: blur(8px);
+  	
   	-webkit-filter: blur(8px);
   	z-index:1;
 }
 .imagenEvento{
-	height:25%; 
+	height:25vh; 
     width: 15%;
-    position: absolute;
+ 	position: absolute;
     top: 26%;
     left: 42.5%;
   	z-index:2;
@@ -36,52 +43,13 @@
 }
 
 .info{
-	position: absolute;
-	width: 35%;
+	
+	width: 80vw;
 	height: 12%;
-	margin-left: 10%;
-	background-color: lightgrey;
+	margin: auto;
 	border: 5px blue;
 }
 
-.entradas{
-	position: absolute;
-	width: 35%;
-	height: 12%;
-	margin-left: 55%;
-	margin-top: 30%;
-	background-color: lightgrey;
-	overflow-y:scroll;
-}
-
-.fechaevento{
-	height:70%; 
-    width: 15%;
-    border:5px blue;
-	position: absolute;
-}
-.numfecha{
-	font-size: 2vw;
-	margin-top:40%;
-	text-align : center;
-}
-.datosevento{
-	margin-left:15%
-}
-
-.botonbuy{
-    background-color: #555555; /* Green */
-	border: none;
-	color: white;
-	padding: 15px 32px;
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	font-size: 16px;
-	float: right;
-	cursor: pointer;
-	margin-right:2%;
-}
 ul {
     list-style: none;
 }
@@ -92,6 +60,11 @@ h1 {
     background: linear-gradient(to right,#CB1FDD,#CB1FDD);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    z-index:2;
+    position: absolute;
+	top: 15%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
 
 
@@ -192,60 +165,6 @@ a {
 #mas-añadir img{
     border-radius: 100%;
 }
-
-#search-container {
-    width: 100%;
-    height: 100px;
-    margin: auto;
-    padding-top: 32px;
-    /* vertical-align: middle; */
-    background-color: white;
-    border-bottom:#1f1f1f double 1px;    
-    padding-left: 7vw;
-    border-radius: 10px 10px 0px 0px ;
-   
-}
-
-.search-input{
-	display: inline-block; 
-	height: 35px; 
-	font-size: 20px;
-	border-width: 2px; 
-}
-
-#text-input{
-	width: 19%; 
-	border-radius: 10px 0px 0px 10px; 
-}
-
-#date{
-	width: 12%; 
-}
-
-#sala{
-	width: 15%; 	
-}
-
-#city{
-	width: 15%; 
-}
-
-#search-submit{
-	width: 3.5vw; 
-	border-radius: 0px 10px 10px 0px; 
-}
-
-#category{
-	width: 10%;
-}
-
-#search-submit:hover{
-	background-color: black;
-    color: white;
-    cursor: pointer;
-}
-
-
 
 /*#####################################IMPORTANTE##################################################
   # Estas clases son para hacer que las imagenes se centren y tengan un fondo                     #
@@ -761,40 +680,18 @@ html, body {
 
 /*####################### Ultimas experiencias ########################*/
 
-
-#proximos-container{
-	display:flex;
-	padding-left: 35%;
-}
-.añadir-evento-boton{
-	height:2vw ;
-    width:12vw ;
-    font-size: 0.9vw;
-    margin-top:1vw;
-    margin-left:2vw;
-}
 #ultimas-container {
     justify-content: space-between;
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 63px;
-    box-shadow: rgb(0 0 0 / 15%) 0px 0px 10px 3px;
-    margin-bottom: 63px;
-    width: 70vw;
-    margin: auto;
-    border-radius: 10px;
-}
 
+}
 #ultimas-container ul{
 	display:flex;
 }
-.imagen-evento-container{
-	width: 25vw;
-	padding-left:5vw;
-}
-.imagen-evento-container img{
+.fecha-evento-container{
 	width: 10vw;
-	height: 10vw;
 }
 .desc-evento-container{
 	width: 20vw;
@@ -803,25 +700,16 @@ html, body {
     justify-content: space-between;
     display: flex;
 }
+
 .button-evento-container{
 	width: 20vw;
 	padding-left:2vw;
-
-	
+	padding-top:2.5vw;
 }
-.visitar-exp{
+.button-evento-container button{
 	height:3vw ;
     width:15vw ;
     font-size: 1vw;
-    margin-top:2.5vw;
-
-}
-.visitar-exp-admin{
-	height:3vw ;
-    width:15vw ;
-    font-size: 1vw;
-    margin-bottom:10px;
-
 }
 .ultimo-evento{
 	height: 14vw;
@@ -829,6 +717,44 @@ html, body {
 	margin: auto;
 	border-bottom: 1px solid black;
 }
+.titulo-evento-container{
+	width: 20vw;
+	padding-left:5vw;
+}
+.titulo-evento-container h2{
+	font-size: 75px;
+	font-family:Poppins;
+}
+
+#caracteristicas{
+	height: 14vw;
+	padding-top: 4vh;
+	margin: auto;
+	width: 50vw;
+	
+}
+#fechaevento{
+	font-weight: bold; 
+  	font-family:Arial, Helvetica, Sans-serif;
+    font-size: 2.5vw;
+    background: linear-gradient(to right,purple ,#CB1FDD);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    z-index:2;
+	width: 60%;
+    margin-left: 10%;
+	
+}
+.info-evento-container{
+	width:20vw;
+	padding-left:8vw;
+}
+.info-evento-container p{
+	font-family: Poppins;
+    font-size: 1vw;
+}
+
+
 
 .ultimo-evento h2{
     font-family: Poppins;
@@ -911,6 +837,20 @@ html, body {
     font-family: Poppins;
     font-size: 0.9vw;
 }
+/*########################## Entradas ###########################*/
+
+.entradas{
+	height: 12%;
+    background-color: lightgrey;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.ticket{
+	
+}
+
 /*########################## Menu hover ###########################*/
 
 .menuhover{
@@ -2103,7 +2043,6 @@ font-size: 1.4vw;
 
 }
 
-
 #experiencias-pop-up .flecha-izq{
     left: 2px;
 }
@@ -2571,11 +2510,52 @@ html, body {
 }
 /*####################### Ultimas experiencias ########################*/
 
+#proximos-container{
+	display:flex;
+	padding-left: 35%;
+}
+.añadir-evento-boton{
+	height:2vw ;
+    width:12vw ;
+    font-size: 0.9vw;
+    margin-top:1vw;
+    margin-left:2vw;
+}
 #ultimas-container {
     justify-content: space-between;
-    display:block;
+    display: flex;
     flex-wrap: wrap;
     margin-bottom: 63px;
+    box-shadow: rgb(0 0 0 / 15%) 0px 0px 10px 3px;
+    margin-bottom: 63px;
+    width: 70vw;
+    margin: auto;
+    border-radius: 10px;
+}
+
+#ultimas-container ul{
+	display:flex;
+}
+.imagen-evento-container{
+	width: 25vw;
+	padding-left:5vw;
+}
+.imagen-evento-container img{
+	width: 10vw;
+	height: 10vw;
+}
+.desc-evento-container{
+	width: 20vw;
+}
+.desc-evento-container div{
+    justify-content: space-between;
+    display: flex;
+}
+.button-evento-container{
+	width: 20vw;
+	padding-left:2vw;
+
+	
 }
 
 .ultima-exp{
@@ -2939,54 +2919,155 @@ html, body {
     }
     /*####################### Ultimas experiencias ########################*/
 
-    #ultimas-container {
-        justify-content: space-between;
-        display:block;
-        flex-wrap: wrap;
-        margin-bottom: 63px;
-    }
+    #proximos-container{
+	display:flex;
+	padding-left: 35%;
+}
+.añadir-evento-boton{
+	height:2vw ;
+    width:12vw ;
+    font-size: 0.9vw;
+    margin-top:1vw;
+    margin-left:2vw;
+}
+#ultimas-container {
+    justify-content: space-between;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 63px;
+    box-shadow: rgb(0 0 0 / 15%) 0px 0px 10px 3px;
+    margin-bottom: 63px;
+    width: 70vw;
+    margin: auto;
+    border-radius: 10px;
+}
 
-    .ultima-exp{
-        width: 85%;
-        margin-top:5vh;
-    }
+#ultimas-container ul{
+	display:flex;
+}
+.imagen-evento-container{
+	width: 25vw;
+	padding-left:5vw;
+}
+.imagen-evento-container img{
+	width: 10vw;
+	height: 10vw;
+}
+.desc-evento-container{
+	width: 20vw;
+}
+.desc-evento-container div{
+    justify-content: space-between;
+    display: flex;
+}
+.button-evento-container{
+	width: 20vw;
+	padding-left:2vw;
 
-        
-    .ultima-exp .img-container{
-        width:30%;
-    }
+	
+}
+.visitar-exp{
+	height:3vw ;
+    width:15vw ;
+    font-size: 1vw;
+    margin-top:2.5vw;
+
+}
+.visitar-exp-admin{
+	height:3vw ;
+    width:15vw ;
+    font-size: 1vw;
+    margin-bottom:10px;
+
+}
+.ultimo-evento{
+	height: 14vw;
+	padding-top: 4vh;
+	margin: auto;
+	border-bottom: 1px solid black;
+}
+
+.ultimo-evento h2{
+    font-family: Poppins;
+    margin-bottom: 3px;
+    font-size: 1.5vw;
+}
+
+.ultimo-evento p{
+    height: 15%;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: .4vw;
+    font-family: Poppins;
+    font-size: 0.9vw;
+}
+
+.ultima-exp{
+    width: 49%;
+    display: flex;
+    height: 12vw;
+    align-items: center;
+    margin-top: 2vw;
+    flex-wrap: wrap;
+
+}
+#ultimas-experiencias h1{
+	text-align:center;
+}
+    
+.ultima-exp .img-container{
+    width:50%;
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+}
+
+.ultima-exp .img-container img{
+    position: absolute;
+    width: 100%;
+    top: calc(50% - 6vw);
+    min-height: 12vw;
+    max-height: 12vw;
+}
 
 
+.ultima-exp .description-container{
+    width: 50%;
+    height: 80%;
+    padding-left: .7vw;
+}
 
+.ultima-exp .description-container div{
+    justify-content: space-between;
+    display: flex;
+}
 
-    .ultima-exp .description-container{
-        width: 70%;
-        height: 80%;
-        padding-left: .7vw;
-    }
+.ultima-exp button{
+    height:2vw ;
+    width:12vw ;
+    font-size: 0.9vw;
+}
+.ultima-exp h3{
+    font-size: 0.9vw;
+}
+.ultima-exp h2{
+    font-family: Poppins;
+    margin-bottom: 3px;
+    font-size: 1.1vw;
+}
 
-    .ultima-exp .description-container div{
-        justify-content: space-between;
-        display: flex;
-    }
-
-    .ultima-exp button{
-        height:2vw ;
-        width:15vw ;
-        font-size: 1.3vw;
-    }
-    .ultima-exp h3{
-        font-size: 1.8vw;
-    }
-    .ultima-exp h2{
-        font-family: Poppins;
-        margin-bottom: 3px;
-        font-size: 2vw;
-    }
-
-    .ultima-exp .description-container p{
-        font-size: 1.8vw;
-    }
+.ultima-exp .description-container p{
+    height: 56%;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: .4vw;
+    font-family: Poppins;
+    font-size: 0.9vw;
+}
     /*####################### Página perfil ########################*/
     .menuoptions .stylebutton {
         height: 6vw;
@@ -3174,5 +3255,3 @@ html, body {
         font-size: 1.5vw;
     }
 }
-
-
