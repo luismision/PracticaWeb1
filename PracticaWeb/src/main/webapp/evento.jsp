@@ -49,19 +49,33 @@
         </div>
         
         <div class="info">
-        <h4>Payno vallecano mi polla en tu mano</h4>
-        <h4>Payno vallecano mi polla en tu mano</h4>
-        <h4>Payno vallecano mi polla en tu mano</h4>
-        <h4>Payno vallecano mi polla en tu mano</h4>
-        <h4>Payno vallecano mi polla en tu mano</h4>
+        	<div class="fechaevento">
+        		<h1 class="numfecha">15 DIC</h1>
+        	</div>
+        	<div class="datosevento">
+        		<h4>Payno vallecano mi polla en tu mano</h4>
+        		<h4>Payno vallecano mi polla en tu mano</h4>
+        		<h4>Payno vallecano mi polla en tu mano</h4>
+        		<h4>Payno vallecano mi polla en tu mano</h4>
+        		<h4>Payno vallecano mi polla en tu mano</h4>
+        	</div>
+        
         </div>
         
         <div class="entradas">
-        <h4>Payno vallecano mi polla en tu mano</h4>
-        <h4>Payno vallecano mi polla en tu mano</h4>
-        <h4>Payno vallecano mi polla en tu mano</h4>
-        <h4>Payno vallecano mi polla en tu mano</h4>
-        <h4>Payno vallecano mi polla en tu mano</h4>
+        	<div class="ticket">
+        		<input type="button" value ="Comprar"  class="botonbuy">
+        		<h4>Tipo</h4>
+        		<h4>Precio</h4>
+        		<h4>Vendedor</h4>
+        		
+        	</div>
+        	<div class="ticket">
+        		<input type="button" value ="Comprar"  class="botonbuy">
+        		<h4>Tipo</h4>
+        		<h4>Precio</h4>
+        		<h4>Vendedor</h4>
+        
         </div>
 </body>
 </html>

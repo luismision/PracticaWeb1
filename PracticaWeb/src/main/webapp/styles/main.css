@@ -6,7 +6,10 @@
 
 }
 
+
+
 .container{
+	
     padding-top: 20px;
     margin: auto;
     width: 80vw;
@@ -37,20 +40,54 @@
 .info{
 	position: absolute;
 	width: 35%;
+	height: 12%;
 	margin-left: 10%;
 	margin-top: 30%;
 	background-color: lightgrey;
+	border: 5px blue;
 }
 
 .entradas{
 	position: absolute;
 	width: 35%;
+	height: 12%;
 	margin-left: 55%;
 	margin-top: 30%;
 	background-color: lightgrey;
+	overflow-y:scroll;
 }
 
-
+.fechaevento{
+	height:70%; 
+    width: 15%;
+    border:5px blue;
+	position: absolute;
+}
+.numfecha{
+	font-size: 2vw;
+	margin-top:40%;
+	text-align : center;
+}
+.datosevento{
+	margin-left:15%
+}
+.ticket{
+	margin-top:3%;
+	margin-bottom:4%;
+}
+.botonbuy{
+    background-color: #555555; /* Green */
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	float: right;
+	cursor: pointer;
+	margin-right:2%;
+}
 ul {
     list-style: none;
 }
@@ -67,6 +104,8 @@ h1 {
 	left: 50%;
 	transform: translate(-50%, -50%);
 }
+
+
 
 h2{
     color: black;
