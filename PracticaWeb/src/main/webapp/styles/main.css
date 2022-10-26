@@ -11,11 +11,46 @@
     margin: auto;
     width: 80vw;
     margin-top: 63px;
+    text-align: center;
+    
+}
+.imagenBlur{
+	height:50%; 
+    width: 100%;
+    position: absolute;
+    top: 10%;
+    left: 0%;
+  	filter: blur(8px);
+  	-webkit-filter: blur(8px);
+  	z-index:1;
 }
 .imagenEvento{
-	padding-top:80px;
-	
+	height:25%; 
+    width: 15%;
+    position: absolute;
+    top: 26%;
+    left: 42.5%;
+  	z-index:2;
+  	border-radius: 10%;
 }
+
+.info{
+	position: absolute;
+	width: 35%;
+	margin-left: 10%;
+	margin-top: 30%;
+	background-color: lightgrey;
+}
+
+.entradas{
+	position: absolute;
+	width: 35%;
+	margin-left: 55%;
+	margin-top: 30%;
+	background-color: lightgrey;
+}
+
+
 ul {
     list-style: none;
 }
@@ -23,9 +58,14 @@ ul {
 h1 {
     font-family: Poppins;
     font-size: 2.5vw;
-    background: linear-gradient(to right,#4F049D,#CB1FDD);
+    background: linear-gradient(to right,#CB1FDD,#CB1FDD);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    z-index:2;
+    position: absolute;
+	top: 15%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
 
 h2{
@@ -2579,11 +2619,11 @@ html, body {
     font-size: 2vw;
     font-size: Poppins;
 }
-
+/*
 .imagenEvento{
 	margin-top: 500px;
 }
-
+*/
 #Colecciones-pop-up {
     left: 32.25%;
 

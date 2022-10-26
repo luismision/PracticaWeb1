@@ -41,9 +41,27 @@
         </nav>
         
         <div class="container">
-        	<h1 >ueeee</h1>
         
+        	<h1>Cena en París</h1>
+        
+         	<img class="imagenBlur" src="images/torre.jpg">
          	<img class="imagenEvento" src="images/torre.jpg">
+        </div>
+        
+        <div class="info">
+        <h4>Payno vallecano mi polla en tu mano</h4>
+        <h4>Payno vallecano mi polla en tu mano</h4>
+        <h4>Payno vallecano mi polla en tu mano</h4>
+        <h4>Payno vallecano mi polla en tu mano</h4>
+        <h4>Payno vallecano mi polla en tu mano</h4>
+        </div>
+        
+        <div class="entradas">
+        <h4>Payno vallecano mi polla en tu mano</h4>
+        <h4>Payno vallecano mi polla en tu mano</h4>
+        <h4>Payno vallecano mi polla en tu mano</h4>
+        <h4>Payno vallecano mi polla en tu mano</h4>
+        <h4>Payno vallecano mi polla en tu mano</h4>
         </div>
 </body>
 </html>
