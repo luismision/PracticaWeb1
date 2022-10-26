@@ -59,7 +59,6 @@
 	            		<li class = "info-evento-container">
 	                         <p>Ciudad: Madrid</p>
 	                         <p>Sala: manca</p>
-	                         <p>Fecha: mañana</p>
 	                         <p>Categoría: Mono</p> 	            		
 	                     </li>
 	            		<li class = "titulo-evento-container">
@@ -71,28 +70,9 @@
         </div>
         </div>
          <div id = "ultimas-experiencias" class = "container">
-        	<div id = proximos-container>
-	            <h1>PROXIMOS EVENTOS</h1>
-				<button class = "stylebutton añadir-evento-boton">AÑADIR EVENTO</button>
-       		</div>
+        	
             <div id = "ultimas-container">
-				<div id = "search-container">
-					<form id = "search-form" action="/PracticaWeb/search" method="post" >
-					  <input id="text-input" type="text" name="search" class="search-input" placeholder="Nombre del evento..." />
-					  <input id="city" name="city" type="text" class="search-input" placeholder="Ciudad..."/> 
-					  <input id="sala" name="room" type="text" class="search-input" placeholder="Sala o estadio..."/> 
-					  <input id="date" class="search-input" type="date" name="date">
-					  <input id="date" class="search-input" type="date" name="date2">
-					   <select class="search-input" name="category" id="category">
-						   <option value="Concierto">Concierto</option>
-						   <option value="Futbol">Partido de futbol</option>
-						   <option value="Baloncesto">Partido de baloncesto</option>
-						   <option value="Teatro">Obra de teatro</option>
-						   <option value="Meeting">Meeting</option>
-					   </select>
-					  <button id="search-submit" class="search-input" type="submit"><i class="fa fa-search"></i></button>
-					</form>
-				</div>
+				
             	<div class = "ultimo-evento">
 	            	<ul>
 	            		<li class = "imagen-evento-container">
