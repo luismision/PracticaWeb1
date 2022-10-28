@@ -76,7 +76,7 @@
 							  <c:when test="${sessionScope.currentUser.userName == 'admin'}">
 							  	<li class = "button-evento-container">
 			            			<button class = "stylebutton visitar-exp-admin">VISITAR EVENTO</button>
-			            			<button class = "stylebutton visitar-exp-admin">MODIFICAR EVENTO</button>
+			            			<a href="/PracticaWeb/modifyEventPage?name=${event.id.name}&city=${event.id.city}&date=${event.id.date}"><button class = "stylebutton visitar-exp-admin">MODIFICAR EVENTO</button></a>
 			            			<a href="/PracticaWeb/deleteEvent?name=${event.id.name}&city=${event.id.city}&date=${event.id.date}"><button class = "stylebutton visitar-exp-admin">ELIMINAR EVENTO</button></a>
 	            				</li>
 							  </c:when>

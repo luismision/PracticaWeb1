@@ -22,6 +22,7 @@ import com.practica1_81_07.control.handlers.IHandler;
 import com.practica1_81_07.control.handlers.ImagesHandler;
 import com.practica1_81_07.control.handlers.LogInHandler;
 import com.practica1_81_07.control.handlers.LogOutHandler;
+import com.practica1_81_07.control.handlers.ModifyEventPage;
 import com.practica1_81_07.control.handlers.NextEventsHandler;
 import com.practica1_81_07.control.handlers.SearchHandler;
 import com.practica1_81_07.control.handlers.SignInHandler;
@@ -31,7 +32,7 @@ import com.practica1_81_07.control.handlers.SignInHandler;
 /**
  * Servlet implementation class MainController
  */
-@WebServlet({"/logIn", "/logOut","/signIn", "/logInPage", "/signInPage","/createEvent","/searchEvent", "/nextEvents","/getImage", "/deleteEvent"})
+@WebServlet({"/logIn", "/logOut","/signIn", "/logInPage", "/signInPage","/createEvent","/searchEvent", "/nextEvents","/getImage", "/deleteEvent", "/modifyEventPage"})
 @MultipartConfig
 public class MainController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -56,6 +57,7 @@ public class MainController extends HttpServlet {
     	map.put("/nextEvents", new NextEventsHandler());
     	map.put("/getImage", new ImagesHandler());
     	map.put("/deleteEvent", new DeleteEventHandler());
+    	map.put("/modifyEventPage", new ModifyEventPage());
 
     }
     
