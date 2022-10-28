@@ -17,7 +17,7 @@ body {
   overflow: hidden; 
 }
 
-#log_in_button{
+.log_in_out_button{
 	position: absolute;
 	margin-left:90%;
 	margin-top:2.5%;
@@ -110,7 +110,7 @@ body {
 }
 
 #city{
-	width: 15%; 
+	width: 12.5%; 
 }
 
 #search-submit{

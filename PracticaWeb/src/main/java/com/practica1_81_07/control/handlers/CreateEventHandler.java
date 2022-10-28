@@ -30,7 +30,6 @@ public class CreateEventHandler implements IHandler{
 		    event.setCategory(req.getParameter("category"));
 		    event.setRoom(req.getParameter("room"));
 		    event.setDescription(req.getParameter("description"));
-	    	
 			Part filePart = req.getPart("imagen");
 			byte[] data = new byte[(int) filePart.getSize()];
 			filePart.getInputStream().read(data, 0, data.length);	
@@ -38,9 +37,9 @@ public class CreateEventHandler implements IHandler{
 			MnEvent.insert(event);
 			
 	    } catch (ParseException e) {
-	    	e.printStackTrace();
-
-		} catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+	    } catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (ServletException e) {

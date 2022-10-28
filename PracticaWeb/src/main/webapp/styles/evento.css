@@ -13,7 +13,7 @@
     margin: auto;
     width: 80vw;
     margin-top: 63px;
-    text-align: center;
+   
     
 }
 .containerfull{
@@ -343,7 +343,112 @@ html, body {
 }
 
 
+/*####################### Ultimas experiencias ########################*/
 
+#proximos-container{
+	display:flex;
+	padding-left: 35%;
+}
+.añadir-evento-boton{
+	height:2vw ;
+    width:12vw ;
+    font-size: 0.9vw;
+    margin-top:1vw;
+    margin-left:2vw;
+}
+#ultimas-container-info {
+    justify-content: space-between;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 63px;
+    margin-bottom: 63px;
+    width: 70vw;
+    margin: auto;
+    border-radius: 10px;
+}
+
+#ultimas-container-info ul{
+	display:flex;
+}
+#ultimas-container {
+    justify-content: space-between;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 63px;
+    box-shadow: rgb(0 0 0 / 15%) 0px 0px 10px 3px;
+    margin-bottom: 63px;
+    width: 70vw;
+    margin: auto;
+    border-radius: 10px;
+}
+
+#ultimas-container ul{
+	display:flex;
+}
+.imagen-evento-container{
+	width: 25vw;
+	padding-left:5vw;
+}
+.imagen-evento-container img{
+	width: 10vw;
+	height: 10vw;
+}
+.desc-evento-container{
+	width: 20vw;
+}
+.desc-evento-container div{
+    justify-content: space-between;
+    display: flex;
+}
+.button-evento-container{
+	width: 20vw;
+	padding-left:2vw;
+
+	
+}
+
+.ultima-exp{
+    width: 85%;
+    margin-top:5vh;
+}
+
+    
+.ultima-exp .img-container{
+    width:30%;
+}
+
+
+
+
+
+.ultima-exp .description-container{
+    width: 70%;
+    height: 80%;
+    padding-left: .7vw;
+}
+
+.ultima-exp .description-container div{
+    justify-content: space-between;
+    display: flex;
+}
+
+.ultima-exp button{
+    height:2vw ;
+    width:15vw ;
+    font-size: 1.3vw;
+}
+.ultima-exp h3{
+    font-size: 1.8vw;
+}
+.ultima-exp h2{
+    font-family: Poppins;
+    margin-bottom: 3px;
+    font-size: 2vw;
+}
+
+.ultima-exp .description-container p{
+    font-size: 1.8vw;
+}
 /* ------------------- Search ---------------------*/
 #search_container #searcher{
     position: relative;
@@ -679,7 +784,16 @@ html, body {
 
 
 /*####################### Ultimas experiencias ########################*/
+#ultimas-container-info {
+    justify-content: space-between;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 63px;
 
+}
+#ultimas-container-info ul{
+	display:flex;
+}
 #ultimas-container {
     justify-content: space-between;
     display: flex;
@@ -691,7 +805,7 @@ html, body {
 	display:flex;
 }
 .fecha-evento-container{
-	width: 10vw;
+	width: 15vw;
 }
 .desc-evento-container{
 	width: 20vw;
@@ -745,14 +859,27 @@ html, body {
     margin-left: 10%;
 	
 }
+.precioevento  {
+	font-weight: bold; 
+ font-family:Poppins; 	font-family:Arial, Helvetica, Sans-serif;
+    font-size: 50px !important; 
+    background: linear-gradient(to right,purple ,#CB1FDD);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    z-index:2;
+	width: 70%;
+    margin-left: 10%;
+    margin-top:10%
+	
+}
 .info-evento-container{
-	width:20vw;
+	width:25vw;
 	padding-left:8vw;
 	padding-top:10px;
 }
 .info-evento-container p{
 	font-family: Poppins;
-    font-size: 20px;
+    font-size: 15px;
 }
 
 
@@ -2509,98 +2636,7 @@ html, body {
 .hoverTurismos{
     left: 57.9vw;
 }
-/*####################### Ultimas experiencias ########################*/
 
-#proximos-container{
-	display:flex;
-	padding-left: 35%;
-}
-.añadir-evento-boton{
-	height:2vw ;
-    width:12vw ;
-    font-size: 0.9vw;
-    margin-top:1vw;
-    margin-left:2vw;
-}
-#ultimas-container {
-    justify-content: space-between;
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 63px;
-    box-shadow: rgb(0 0 0 / 15%) 0px 0px 10px 3px;
-    margin-bottom: 63px;
-    width: 70vw;
-    margin: auto;
-    border-radius: 10px;
-}
-
-#ultimas-container ul{
-	display:flex;
-}
-.imagen-evento-container{
-	width: 25vw;
-	padding-left:5vw;
-}
-.imagen-evento-container img{
-	width: 10vw;
-	height: 10vw;
-}
-.desc-evento-container{
-	width: 20vw;
-}
-.desc-evento-container div{
-    justify-content: space-between;
-    display: flex;
-}
-.button-evento-container{
-	width: 20vw;
-	padding-left:2vw;
-
-	
-}
-
-.ultima-exp{
-    width: 85%;
-    margin-top:5vh;
-}
-
-    
-.ultima-exp .img-container{
-    width:30%;
-}
-
-
-
-
-
-.ultima-exp .description-container{
-    width: 70%;
-    height: 80%;
-    padding-left: .7vw;
-}
-
-.ultima-exp .description-container div{
-    justify-content: space-between;
-    display: flex;
-}
-
-.ultima-exp button{
-    height:2vw ;
-    width:15vw ;
-    font-size: 1.3vw;
-}
-.ultima-exp h3{
-    font-size: 1.8vw;
-}
-.ultima-exp h2{
-    font-family: Poppins;
-    margin-bottom: 3px;
-    font-size: 2vw;
-}
-
-.ultima-exp .description-container p{
-    font-size: 1.8vw;
-}
 /*####################### pop up  ########################*/
 .content-sign-log {
     width: 45vw;

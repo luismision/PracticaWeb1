@@ -7,20 +7,20 @@ import java.util.List;
 
 /**
  * The persistent class for the users database table.
- *
+ * 
  */
 @Entity
 @Table(name="users")
 @NamedQueries({
-	@NamedQuery(name="User.findAll", query="SELECT u FROM User u"),
-	@NamedQuery(name="User.findByName", query="SELECT u FROM User u where u.userName = :name ")
-	/*@NamedQuery(name="User.findByNameContaining", query="SELECT u FROM User u where u.userName LIKE CONCAT('%',:name,'%')")*/
+    @NamedQuery(name="User.findAll", query="SELECT u FROM User u"),
+    @NamedQuery(name="User.findByName", query="SELECT u FROM User u where u.userName = :name ")
+    /*@NamedQuery(name="User.findByNameContaining", query="SELECT u FROM User u where u.userName LIKE CONCAT('%',:name,'%')")*/
 })
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	/*@GeneratedValue(strategy=GenerationType.AUTO)*/
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private String userName;
 
 	private String address;
@@ -74,9 +74,9 @@ public class User implements Serializable {
 		return this.phone;
 	}
 
-	public void setPhone(String phone) {
-		this.phone = Integer.parseInt(phone);
-	}
+    public void setPhone(String phone) {
+        this.phone = Integer.parseInt(phone);
+    }
 
 	public List<Ticket> getTickets() {
 		return this.tickets;

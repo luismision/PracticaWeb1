@@ -1,5 +1,8 @@
 package com.practica1_81_07.model.managers;
 
+import java.util.Date;
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -7,6 +10,8 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 
 import com.practica1_81_07.model.Event;
+import com.practica1_81_07.model.EventPK;
+import com.practica1_81_07.model.User;
 
 public class ManagerEvent implements ManagerJpa<Event>{
 
@@ -54,10 +59,12 @@ public class ManagerEvent implements ManagerJpa<Event>{
 		return true;
 	}
 
-	public Event findByName(String name){
-		Event event; 
-		Query q = em.createNamedQuery("Ticket.findByName");
+	public Event findByPk(String name, String city, Date date){
+		Event event;
+		Query q = em.createNamedQuery("Event.findByPk");
 		q.setParameter("name", name);
+		q.setParameter("city", city);
+		q.setParameter("date", date);
 		try{ 
 			event = (Event)q.getSingleResult();
 		}catch(Exception e) {
@@ -65,7 +72,20 @@ public class ManagerEvent implements ManagerJpa<Event>{
 		}
 		return event;
 	}
+	
+    @SuppressWarnings("unchecked")
+    public List<Event> findAll(){
+        Query q= em.createNamedQuery("Event.findAllByDate");
+        List <Event> lista = q.getResultList();      
+        return lista;
+    }
 
+
+    @Override
+    public Event findByName(String name) {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
 
 	
@@ -86,11 +106,6 @@ public class ManagerEvent implements ManagerJpa<Event>{
 	
 	
 	/*
-	@SuppressWarnings("unchecked")
-	public List<User> findAll(){
-		Query q= em.createNamedQuery("Person.findAll");
-		List <User> lista = q.getResultList();		
-		return lista;
-	}
+
 	*/
 }

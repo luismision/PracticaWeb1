@@ -37,15 +37,15 @@ public class EventPK implements Serializable {
 	public void setCity(String city) {
 		this.city = city;
 	}
-	public String getDate() {
-		DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");  
-		String strDate = dateFormat.format(this.date); 
-		return strDate;
-	}
-	public void setDate(String date) throws ParseException { 
-	    java.util.Date date1=new SimpleDateFormat("yyyy-mm-dd").parse(date);  
-		this.date = date1;
-	}
+    public String getDate() {
+        DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");  
+        String strDate = dateFormat.format(this.date); 
+        return strDate;
+    }
+    public void setDate(String date) throws ParseException { 
+        java.util.Date date1=new SimpleDateFormat("yyyy-MM-dd").parse(date);  
+        this.date = date1;
+    }
 
 	public boolean equals(Object other) {
 		if (this == other) {
@@ -70,4 +70,5 @@ public class EventPK implements Serializable {
 		
 		return hash;
 	}
+
 }

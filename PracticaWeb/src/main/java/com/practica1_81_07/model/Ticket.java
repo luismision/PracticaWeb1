@@ -16,9 +16,12 @@ public class Ticket implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private String id;
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private String code;
 
 	private BigDecimal prize;
+
+	private String type;
 
 	//bi-directional many-to-one association to Event
 	@ManyToOne
@@ -37,12 +40,12 @@ public class Ticket implements Serializable {
 	public Ticket() {
 	}
 
-	public String getId() {
-		return this.id;
+	public String getCode() {
+		return this.code;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setCode(String code) {
+		this.code = code;
 	}
 
 	public BigDecimal getPrize() {
@@ -51,6 +54,14 @@ public class Ticket implements Serializable {
 
 	public void setPrize(BigDecimal prize) {
 		this.prize = prize;
+	}
+
+	public String getType() {
+		return this.type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 
 	public Event getEvent() {

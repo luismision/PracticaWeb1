@@ -2,6 +2,7 @@ package com.practica1_81_07.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import java.util.List;
 
 
 /**
@@ -10,7 +11,11 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="events")
-@NamedQuery(name="Event.findAll", query="SELECT e FROM Event e")
+@NamedQueries({
+    @NamedQuery(name="Event.findAll", query="SELECT e FROM Event e"),
+    @NamedQuery(name="Event.findAllByDate", query="SELECT e FROM Event e ORDER BY e.id.date ASC"),
+    @NamedQuery(name="Event.findByPk", query="SELECT e FROM Event e where e.id.name = :name and e.id.city = :city and e.id.date = :date")
+})
 public class Event implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -23,9 +28,12 @@ public class Event implements Serializable {
 
 	@Lob
 	private byte[] imagen;
-	
-	
+
 	private String room;
+
+	//bi-directional many-to-one association to Ticket
+	@OneToMany(mappedBy="event")
+	private List<Ticket> tickets;
 
 	public Event() {
 	}
@@ -35,10 +43,9 @@ public class Event implements Serializable {
 	}
 
 	public void setId(EventPK id) {
-		this.id = id; 
+		this.id = id;
 	}
 
-	
 	public String getCategory() {
 		return this.category;
 	}
@@ -69,6 +76,28 @@ public class Event implements Serializable {
 
 	public void setRoom(String room) {
 		this.room = room;
+	}
+
+	public List<Ticket> getTickets() {
+		return this.tickets;
+	}
+
+	public void setTickets(List<Ticket> tickets) {
+		this.tickets = tickets;
+	}
+
+	public Ticket addTicket(Ticket ticket) {
+		getTickets().add(ticket);
+		ticket.setEvent(this);
+
+		return ticket;
+	}
+
+	public Ticket removeTicket(Ticket ticket) {
+		getTickets().remove(ticket);
+		ticket.setEvent(null);
+
+		return ticket;
 	}
 
 }

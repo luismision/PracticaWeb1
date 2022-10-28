@@ -50,7 +50,7 @@
               </div>
               <input name="login" id="login" class="btn btn-block login-btn" type="submit" value="Registrarse">
             </form>
-            <p class="login-wrapper-footer-text">¿Ya tienes una cuenta? <a href="/PracticaWeb/logInPage" class="text-reset">Identificate aquí</a></p>
+            <p class="login-wrapper-footer-text">¿Ya tienes una cuenta? <a href="/PracticaWeb/logIn.jsp" class="text-reset">Identificate aquí</a></p>
           </div>
         </div>
         <div class="col-sm-6 px-0 d-none d-sm-block">

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,7 +48,7 @@
          	<img class="imagenEvento" src="images/torre.jpg">
          	
          	<div class="info">
-         	<div id = ultimas-container>
+         	<div id = ultimas-container-info>
          	<div id = "caracteristicas">
 	            	<ul>
 	            		<li class = "fecha-evento-container">
@@ -67,6 +68,10 @@
 	            		
 	            	</ul>
             	</div>
+            <div id="descripcionevento">
+            	<p>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
+					"There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."</p>
+            </div>
         </div>
         </div>
          <div id = "ultimas-experiencias" class = "container">
@@ -77,7 +82,7 @@
 	            	<ul>
 	            		<li class = "imagen-evento-container">
 	            			<div>
-	            				<img src = "https://pbs.twimg.com/media/Ff6hRaAWAAAIheR?format=jpg&name=small">
+	            				<p class="precioevento">15$</p>
 	            			</div>
 	            			
 	            		</li>
@@ -91,9 +96,8 @@
 	                         <p>Fecha: mañana</p> 
 	            		</li>
 	            		<li class = "button-evento-container">
-	            			<button class = "stylebutton visitar-exp-admin">VISITAR EVENTO</button>
-	            			<button class = "stylebutton visitar-exp-admin">MODIFICAR EVENTO</button>
-	            			<button class = "stylebutton visitar-exp-admin">ELIMINAR EVENTO</button>
+	            			<button class = "stylebutton visitar-exp-admin">COMPRAR</button>
+	            			
 	            		</li>
 	            	</ul>
             	</div>
@@ -101,7 +105,7 @@
 	            	<ul>
 	            		<li class = "imagen-evento-container">
 	            			<div>
-	            				<img src = "https://pbs.twimg.com/media/Ff6hpHeWIAIGG3O?format=jpg&name=900x900">
+	            				<p class="precioevento">15$</p>
 	            			</div>
 	            			
 	            		</li>
@@ -115,7 +119,7 @@
 	                         <p>Fecha: mañana</p> 
 	            		</li>
 	            		<li class = "button-evento-container">
-	            			<button class = "stylebutton visitar-exp">VISITAR EVENTO</button>
+	            			<button class = "stylebutton visitar-exp">COMPRAR</button>
 	            		</li>
 	            	</ul>
             	</div>
@@ -123,7 +127,7 @@
 	            	<ul>
 	            		<li class = "imagen-evento-container">
 	            			<div>
-	            				<img src = "https://pbs.twimg.com/media/Ff6hRaAWAAAIheR?format=jpg&name=small">
+	            				<p class="precioevento">15$</p>
 	            			</div>
 	            			
 	            		</li>
@@ -137,7 +141,7 @@
 	                         <p>Fecha: mañana</p> 
 	            		</li>
 	            		<li class = "button-evento-container">
-	            			<button class = "stylebutton visitar-exp">VISITAR EVENTO</button>
+	            			<button class = "stylebutton visitar-exp">COMPRAR</button>
 	            		</li>
 	            	</ul>
             	</div>
@@ -145,7 +149,7 @@
 	            	<ul>
 	            		<li class = "imagen-evento-container">
 	            			<div>
-	            				<img src = "https://www.entornoturistico.com/wp-content/uploads/2017/03/Evento-corporativo-1280x720.jpg">
+	            				<p class="precioevento">15$</p>
 	            			</div>
 	            			
 	            		</li>
@@ -159,7 +163,7 @@
 	                         <p>Fecha: mañana</p> 
 	            		</li>
 	            		<li class = "button-evento-container">
-	            			<button class = "stylebutton visitar-exp">VISITAR EVENTO</button>
+	            			<button class = "stylebutton visitar-exp">COMPRAR</button>
 
 	            		</li>
 	            	</ul>
@@ -168,7 +172,7 @@
 	            	<ul>
 	            		<li class = "imagen-evento-container">
 	            			<div>
-	            				<img src = "https://pbs.twimg.com/media/Ff6hRaAWAAAIheR?format=jpg&name=small">
+	            				<p class="precioevento">15$</p>
 	            			</div>
 	            			
 	            		</li>
@@ -182,7 +186,7 @@
 	                         <p>Fecha: mañana</p> 
 	            		</li>
 	            		<li class = "button-evento-container">
-	            			<button class = "stylebutton visitar-exp">VISITAR EVENTO</button>
+	            			<button class = "stylebutton visitar-exp">COMPRAR</button>
 	            		</li>
 	            	</ul>
             	</div>
