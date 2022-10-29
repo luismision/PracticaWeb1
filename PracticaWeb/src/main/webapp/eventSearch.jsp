@@ -39,21 +39,23 @@
        		</div>
             <div id = "ultimas-container">
 				<div id = "search-container">
-					<form id = "search-form" action="/PracticaWeb/search" method="post" >
-					  <input id="text-input" type="text" name="search" class="search-input" placeholder="Nombre del evento..." />
-					  <input id="city" name="city" type="text" class="search-input" placeholder="Ciudad..."/> 
-					  <input id="sala" name="room" type="text" class="search-input" placeholder="Sala o estadio..."/> 
-					  <input id="date" class="search-input" type="date" name="date">
-					  <input id="date" class="search-input" type="date" name="date2">
-					   <select class="search-input" name="category" id="category">
-						   <option value="Concierto">Concierto</option>
-						   <option value="Futbol">Partido de futbol</option>
-						   <option value="Baloncesto">Partido de baloncesto</option>
-						   <option value="Teatro">Obra de teatro</option>
-						   <option value="Meeting">Meeting</option>
-					   </select>
-					  <button id="search-submit" class="search-input" type="submit"><i class="fa fa-search"></i></button>
-					</form>
+					<form id = "search-form" action="/PracticaWeb/searchEvent" method="post" >
+			          <input id="text-input" type="text" name="search" class="search-input" placeholder="Nombre del evento..." />
+			          <input id="city" name="city" type="text" class="search-input" placeholder="Ciudad..."/> 
+			          <input id="sala" name="room" type="text" class="search-input" placeholder="Sala o estadio..."/> 
+			          <input id="date" class="search-input" type="date" name="date">
+			          <input id="date" class="search-input" type="date" name="date2">
+			           <select class="search-input" name="category" id="category">
+			           	   <option value="default">Tipo de evento</option>	
+			           	   <option value="any">Cualquiera</option>
+			               <option value="Concierto">Concierto</option>
+			               <option value="Futbol">Partido de futbol</option>
+			               <option value="Baloncesto">Partido de baloncesto</option>
+			               <option value="Teatro">Obra de teatro</option>
+			               <option value="Meeting">Meeting</option>
+			           </select>
+			          <button id="search-submit" class="search-input" type="submit"><i class="fa fa-search"></i></button>
+			        </form>
 				</div>
 				<c:forEach items="${requestScope.eventList}" var="event">
 				<div class = "ultimo-evento">
@@ -75,14 +77,14 @@
 	            		<c:choose>
 							  <c:when test="${sessionScope.currentUser.userName == 'admin'}">
 							  	<li class = "button-evento-container">
-			            			<button class = "stylebutton visitar-exp-admin">VISITAR EVENTO</button>
+			            			<a href="/PracticaWeb/buyTickets?name=${event.id.name}&city=${event.id.city}&date=${event.id.date}"><button class = "stylebutton visitar-exp-admin">COMPRAR ENTRADAS</button></a>
 			            			<a href="/PracticaWeb/modifyEventPage?name=${event.id.name}&city=${event.id.city}&date=${event.id.date}"><button class = "stylebutton visitar-exp-admin">MODIFICAR EVENTO</button></a>
 			            			<a href="/PracticaWeb/deleteEvent?name=${event.id.name}&city=${event.id.city}&date=${event.id.date}"><button class = "stylebutton visitar-exp-admin">ELIMINAR EVENTO</button></a>
 	            				</li>
 							  </c:when>
 							  <c:otherwise>
 							   	<li class = "button-evento-container">
-	            					<button class = "stylebutton visitar-exp">VISITAR EVENTO</button>
+	            					<a href="/PracticaWeb/buyTickets?name=${event.id.name}&city=${event.id.city}&date=${event.id.date}"><button class = "stylebutton visitar-exp">COMPRAR ENTRADAS</button></a>
 	            				</li>
 							  </c:otherwise>
 						</c:choose>

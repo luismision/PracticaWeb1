@@ -36,10 +36,6 @@ public class SearchFilter extends HttpFilter implements Filter {
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {   
 
-	    
-
-	    
-	    
 	    if(request.getParameter("search").isEmpty() && request.getParameter("city").isEmpty() 
 	            && request.getParameter("room").isEmpty() && request.getParameter("date").isEmpty()
 	            && request.getParameter("date2").isEmpty() && request.getParameter("category").equals("default")) {
@@ -59,8 +55,8 @@ public class SearchFilter extends HttpFilter implements Filter {
 	    
 	    if(!request.getParameter("date").isEmpty() && !request.getParameter("date2").isEmpty()) {
 	        try {
-	            Date date1= new SimpleDateFormat("yyyy-mm-dd").parse(request.getParameter("date"));
-                Date date2= new SimpleDateFormat("yyyy-mm-dd").parse(request.getParameter("date2"));
+	            Date date1= new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("date"));
+                Date date2= new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("date2"));
                 if(date1.compareTo(date2) > 0 ) {
                     request.setAttribute("failedSearch", true);
                     request.getRequestDispatcher("index.jsp").forward(request, response);

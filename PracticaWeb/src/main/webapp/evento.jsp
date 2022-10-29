@@ -17,27 +17,18 @@
 	<nav id = "header">
             <ul>    
                 <li id = "logo_container" >
-                <a href ="/PracticaWeb" target="_blank">
-                <img  id = "logo"  src = "/PracticaWeb/images/logo.png" alt="logo"></a>
+                	<a href ="/PracticaWeb" target="_blank"><img  id = "logo"  src = "/PracticaWeb/images/logo.png" alt="logo"></a>
                 </li>
-               
                 <li id = "search_container" >
-                    <form id = "searcher" action ="" method = "post">
-                        <label><input id="searchterm" type="text" placeholder="Buscar..."/>ㅤ</label>
-                        <button id="buttonsearch" type = "submit">
-                            <img id = "lupa" alt="buscador"src = "/PracticaWeb/images/lupa.png">
-                        </button>
-                    </form>
                 </li> 
                 <li id = "sesion_container">
                 	<ul>
 	               		<li id = "username_container"><c:if test = "${!empty sessionScope.currentUser}"> <h2><c:out value="${sessionScope.currentUser.userName}"/></h2></c:if></li>
 	                	<li id = "log_out_button_container"><c:if test = "${!empty sessionScope.currentUser}"><a href = "/PracticaWeb/logOut"><button id = "log_out_button" class = "stylebutton">CERRAR SESIÓN</button></a></c:if></li>
                 	</ul> 
-                    <c:if test = "${empty sessionScope.currentUser}"> <a href = "/PracticaWeb/logIn.jsp"><button id = "log_in_button" class = "stylebutton">INICIAR SESIÓN</button></a></c:if>
-					  
+                    <c:if test = "${empty sessionScope.currentUser}"> <a href = "/PracticaWeb/logIn.jsp"><button id = "log_in_button" class = "stylebutton">INICIAR SESIÓN</button></a></c:if>		  
                 </li>  
-            </ul>            
+            </ul>
         </nav>
         
         <div class="containerfull">
@@ -73,6 +64,8 @@
 					"There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."</p>
             </div>
         </div>
+        
+        <a href="/PracticaWeb/createTicketPage?name=${requestScope.currentEvent.id.name}&city=${requestScope.currentEvent.id.city}&date=${requestScope.currentEvent.id.date}"><button class = "stylebutton visitar-exp-admin">VENDER TICKET</button></a>
         </div>
          <div id = "ultimas-experiencias" class = "container">
         	

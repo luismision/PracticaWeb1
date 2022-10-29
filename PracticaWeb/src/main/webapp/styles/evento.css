@@ -881,7 +881,10 @@ html, body {
 	font-family: Poppins;
     font-size: 15px;
 }
-
+#descripcionevento p{
+	font-family: Poppins;
+	
+}
 
 
 .ultimo-evento h2{

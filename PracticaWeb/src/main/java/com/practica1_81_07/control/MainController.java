@@ -16,12 +16,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
+import com.practica1_81_07.control.handlers.BuyTicketsHandler;
 import com.practica1_81_07.control.handlers.CreateEventHandler;
+import com.practica1_81_07.control.handlers.CreateTicketHandler;
+import com.practica1_81_07.control.handlers.CreateTicketPage;
 import com.practica1_81_07.control.handlers.DeleteEventHandler;
 import com.practica1_81_07.control.handlers.IHandler;
 import com.practica1_81_07.control.handlers.ImagesHandler;
 import com.practica1_81_07.control.handlers.LogInHandler;
 import com.practica1_81_07.control.handlers.LogOutHandler;
+import com.practica1_81_07.control.handlers.ModifyEventHandler;
 import com.practica1_81_07.control.handlers.ModifyEventPage;
 import com.practica1_81_07.control.handlers.NextEventsHandler;
 import com.practica1_81_07.control.handlers.SearchHandler;
@@ -32,7 +36,7 @@ import com.practica1_81_07.control.handlers.SignInHandler;
 /**
  * Servlet implementation class MainController
  */
-@WebServlet({"/logIn", "/logOut","/signIn", "/logInPage", "/signInPage","/createEvent","/searchEvent", "/nextEvents","/getImage", "/deleteEvent", "/modifyEventPage"})
+@WebServlet({"/logIn", "/logOut","/signIn", "/logInPage", "/signInPage","/createEvent","/searchEvent", "/nextEvents","/getImage", "/deleteEvent", "/modifyEventPage", "/modifyEvent", "/createTicketPage", "/createTicket", "/buyTickets"})
 @MultipartConfig
 public class MainController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -58,6 +62,11 @@ public class MainController extends HttpServlet {
     	map.put("/getImage", new ImagesHandler());
     	map.put("/deleteEvent", new DeleteEventHandler());
     	map.put("/modifyEventPage", new ModifyEventPage());
+    	map.put("/modifyEvent", new ModifyEventHandler());
+    	map.put("/createTicketPage", new CreateTicketPage());
+        map.put("/createTicket", new CreateTicketHandler());
+        map.put("/buyTickets", new BuyTicketsHandler());
+
 
     }
     

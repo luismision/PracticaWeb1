@@ -3,6 +3,8 @@ package com.practica1_81_07.control.handlers;
 
 import java.io.IOException;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -21,16 +23,16 @@ public class ModifyEventHandler implements IHandler {
 
     @Override
     public String process(HttpServletRequest req, HttpServletResponse res) {
-       
-       
-         
+        Date date;
         Event event2 = new Event();
         EventPK eventPk = new EventPK();
         ManagerEvent MnEvent  = new ManagerEvent();
-        Event event = (Event) req.getAttribute("currentEvent");
-        MnEvent.delete(event);
+        Event event; 
         
         try {
+            date = (Date) new SimpleDateFormat("dd-MM-yyyy").parse(req.getParameter("oldDate"));
+            event = MnEvent.findByPk(req.getParameter("oldName"), req.getParameter("oldCity"), date);
+            MnEvent.delete(event);
             eventPk.setName(req.getParameter("name"));
             eventPk.setCity(req.getParameter("city"));
             eventPk.setDate(req.getParameter("date"));
@@ -55,7 +57,7 @@ public class ModifyEventHandler implements IHandler {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        return "index.jsp";
+        return "/nextEvents";
     }
     
 }   

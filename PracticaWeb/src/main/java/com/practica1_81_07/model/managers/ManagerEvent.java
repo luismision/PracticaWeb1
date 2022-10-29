@@ -1,7 +1,11 @@
 package com.practica1_81_07.model.managers;
 
+import java.lang.reflect.Array;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -11,6 +15,7 @@ import javax.persistence.Query;
 
 import com.practica1_81_07.model.Event;
 import com.practica1_81_07.model.EventPK;
+import com.practica1_81_07.model.Ticket;
 import com.practica1_81_07.model.User;
 
 public class ManagerEvent implements ManagerJpa<Event>{
@@ -83,11 +88,44 @@ public class ManagerEvent implements ManagerJpa<Event>{
 
     @Override
     public Event findByName(String name) {
-        // TODO Auto-generated method stub
+        Event event; 
+        Query q = em.createNamedQuery("Ticket.findByName");
+        q.setParameter("name", name);
+        try{ 
+            event = (Event)q.getSingleResult();
+        }catch(Exception e) {
+            return null; 
+        }
         return null;
     }
 
 
+    @SuppressWarnings("unchecked")
+    public List<Event> searchFind(List<String> inputs) throws ArrayIndexOutOfBoundsException, IllegalArgumentException, ParseException{
+        Query q = em.createNamedQuery("Event.searchBy"); 
+        
+        if (inputs.get(3).isEmpty() && inputs.get(4).isEmpty()) {
+            Date date2 = new SimpleDateFormat("yyyy-MM-dd").parse("0000-01-01");
+            Date date = new SimpleDateFormat("yyyy-MM-dd").parse("9999-12-31");
+            q.setParameter("date",date); 
+            q.setParameter("date2", date2); 
+        }
+        else {
+            Date date = new SimpleDateFormat("yyyy-MM-dd").parse(inputs.get(3));
+            Date date2 = new SimpleDateFormat("yyyy-MM-dd").parse(inputs.get(4));
+            q.setParameter("date",date); 
+            q.setParameter("date2", date2); 
+        }
+           
+        q.setParameter("name",inputs.get(0));
+        q.setParameter("room",inputs.get(1));
+        q.setParameter("city",inputs.get(2));
+        q.setParameter("category",inputs.get(5));
+        
+        List<Event> results = q.getResultList(); 
+        return results; 
+        
+    }
 	
 
 	

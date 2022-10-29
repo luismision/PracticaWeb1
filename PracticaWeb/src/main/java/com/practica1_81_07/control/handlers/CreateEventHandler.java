@@ -22,7 +22,13 @@ public class CreateEventHandler implements IHandler{
 		Event event = new Event();
 		EventPK eventPk = new EventPK();
 		ManagerEvent MnEvent  = new ManagerEvent();
-	    try {
+		
+	    try {          
+	        Part filePart = req.getPart("imagen");
+	        if (!filePart.getContentType().startsWith("image")) {
+	            return "crearEvento.html"; 
+	        }
+	        byte[] data = new byte[(int) filePart.getSize()];
 			eventPk.setName(req.getParameter("name"));
 			eventPk.setCity(req.getParameter("city"));
 			eventPk.setDate(req.getParameter("date"));
@@ -30,8 +36,6 @@ public class CreateEventHandler implements IHandler{
 		    event.setCategory(req.getParameter("category"));
 		    event.setRoom(req.getParameter("room"));
 		    event.setDescription(req.getParameter("description"));
-			Part filePart = req.getPart("imagen");
-			byte[] data = new byte[(int) filePart.getSize()];
 			filePart.getInputStream().read(data, 0, data.length);	
 			event.setImagen(data);
 			MnEvent.insert(event);
@@ -47,7 +51,7 @@ public class CreateEventHandler implements IHandler{
 			e.printStackTrace();
 		}
 		
-		return "index.jsp";
+		return "/nextEvents";
 		
 	}
 
