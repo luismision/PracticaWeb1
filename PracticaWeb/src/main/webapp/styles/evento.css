@@ -349,6 +349,14 @@ html, body {
 	display:flex;
 	padding-left: 35%;
 }
+
+.vender-ticket-button{
+	margin-left:45%;
+	margin-bottom:10px;
+	width:15%;
+	font-size:1vw;
+}
+
 .añadir-evento-boton{
 	height:2vw ;
     width:12vw ;
@@ -376,7 +384,6 @@ html, body {
     flex-wrap: wrap;
     margin-bottom: 63px;
     box-shadow: rgb(0 0 0 / 15%) 0px 0px 10px 3px;
-    margin-bottom: 63px;
     width: 70vw;
     margin: auto;
     border-radius: 10px;
@@ -395,6 +402,7 @@ html, body {
 }
 .desc-evento-container{
 	width: 20vw;
+	padding-top:2.5vh;
 }
 .desc-evento-container div{
     justify-content: space-between;
@@ -403,8 +411,6 @@ html, body {
 .button-evento-container{
 	width: 20vw;
 	padding-left:2vw;
-
-	
 }
 
 .ultima-exp{
@@ -794,13 +800,7 @@ html, body {
 #ultimas-container-info ul{
 	display:flex;
 }
-#ultimas-container {
-    justify-content: space-between;
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 63px;
 
-}
 #ultimas-container ul{
 	display:flex;
 }
@@ -836,7 +836,7 @@ html, body {
 	padding-left:5vw;
 }
 .titulo-evento-container h2{
-	font-size: 75px;
+	font-size: 65px;
 	font-family:Poppins;
 }
 
@@ -844,7 +844,7 @@ html, body {
 	height: 14vw;
 	padding-top: 4vh;
 	margin: auto;
-	width: 50vw;
+	width: 55vw;
 	
 }
 #fechaevento{
@@ -879,7 +879,7 @@ html, body {
 }
 .info-evento-container p{
 	font-family: Poppins;
-    font-size: 15px;
+    font-size: 18px;
 }
 #descripcionevento p{
 	font-family: Poppins;
@@ -2976,7 +2976,6 @@ html, body {
     flex-wrap: wrap;
     margin-bottom: 63px;
     box-shadow: rgb(0 0 0 / 15%) 0px 0px 10px 3px;
-    margin-bottom: 63px;
     width: 70vw;
     margin: auto;
     border-radius: 10px;

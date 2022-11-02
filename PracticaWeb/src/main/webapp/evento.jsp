@@ -30,10 +30,7 @@
                 </li>  
             </ul>
         </nav>
-        
         <div class="containerfull">
-        
-        	
         
          	<img class="imagenBlur" src="images/torre.jpg">
          	<img class="imagenEvento" src="images/torre.jpg">
@@ -44,148 +41,72 @@
 	            	<ul>
 	            		<li class = "fecha-evento-container">
 	            			<div>
-	            				<p id="fechaevento">15 DIC</p>
+	            				<p id="fechaevento">${requestScope.currentEvent.id.date}</p>
 	            			</div>
 	            			
 	            		</li>
 	            		<li class = "info-evento-container">
-	                         <p>Ciudad: Madrid</p>
-	                         <p>Sala: manca</p>
-	                         <p>Categoría: Mono</p> 	            		
+	                         <p>Ciudad: ${requestScope.currentEvent.id.city}</p>
+	                         <p>Sala: ${requestScope.currentEvent.room}</p>
+	                         <p>Categoría: ${requestScope.currentEvent.category}</p> 	            		
 	                     </li>
 	            		<li class = "titulo-evento-container">
-	                         <h2>titulo</h2>
+	                         <h2>${requestScope.currentEvent.id.name}</h2>
 	            		</li>
 	            		
 	            	</ul>
-            	</div>
-            <div id="descripcionevento">
-            	<p>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
-					"There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."</p>
             </div>
         </div>
-        
-        <a href="/PracticaWeb/createTicketPage?name=${requestScope.currentEvent.id.name}&city=${requestScope.currentEvent.id.city}&date=${requestScope.currentEvent.id.date}"><button class = "stylebutton visitar-exp-admin">VENDER TICKET</button></a>
+        <div id="descripcionevento">
+            	<p>${requestScope.currentEvent.description}</p>
+            </div>
         </div>
-         <div id = "ultimas-experiencias" class = "container">
-        	
+        <div id = "ultimas-experiencias" class = "container">
+        	<c:if test = "${!empty sessionScope.currentUser}">
+        		<a href="/PracticaWeb/createTicketPage?name=${requestScope.currentEvent.id.name}&city=${requestScope.currentEvent.id.city}&date=${requestScope.currentEvent.id.date}">
+        			<button class = "stylebutton vender-ticket-button">VENDER TICKET</button>
+        		</a>
+        	</c:if>
             <div id = "ultimas-container">
-				
-            	<div class = "ultimo-evento">
-	            	<ul>
-	            		<li class = "imagen-evento-container">
-	            			<div>
-	            				<p class="precioevento">15$</p>
-	            			</div>
-	            			
-	            		</li>
-	            		<li class = "desc-evento-container">
-	            			<div>
-	                        	<h3>Categoría: Mono</h3>
-	                        </div>
-	                         <h2>titulo</h2>
-	                         <p>Ciudad: Madrid</p>
-	                         <p>Sala: manca</p>
-	                         <p>Fecha: mañana</p> 
-	            		</li>
-	            		<li class = "button-evento-container">
-	            			<button class = "stylebutton visitar-exp-admin">COMPRAR</button>
-	            			
-	            		</li>
-	            	</ul>
-            	</div>
-            	<div class = "ultimo-evento">
-	            	<ul>
-	            		<li class = "imagen-evento-container">
-	            			<div>
-	            				<p class="precioevento">15$</p>
-	            			</div>
-	            			
-	            		</li>
-	            		<li class = "desc-evento-container">
-	            			<div>
-	                        	<h3>Categoría: Mono</h3>
-	                        </div>
-	                         <h2>titulo</h2>
-	                         <p>Ciudad: Madrid</p>
-	                         <p>Sala: manca</p>
-	                         <p>Fecha: mañana</p> 
-	            		</li>
-	            		<li class = "button-evento-container">
-	            			<button class = "stylebutton visitar-exp">COMPRAR</button>
-	            		</li>
-	            	</ul>
-            	</div>
-            	<div class = "ultimo-evento">
-	            	<ul>
-	            		<li class = "imagen-evento-container">
-	            			<div>
-	            				<p class="precioevento">15$</p>
-	            			</div>
-	            			
-	            		</li>
-	            		<li class = "desc-evento-container">
-	            			<div>
-	                        	<h3>Categoría: Mono</h3>
-	                        </div>
-	                         <h2>titulo</h2>
-	                         <p>Ciudad: Madrid</p>
-	                         <p>Sala: manca</p>
-	                         <p>Fecha: mañana</p> 
-	            		</li>
-	            		<li class = "button-evento-container">
-	            			<button class = "stylebutton visitar-exp">COMPRAR</button>
-	            		</li>
-	            	</ul>
-            	</div>
-            	<div class = "ultimo-evento">
-	            	<ul>
-	            		<li class = "imagen-evento-container">
-	            			<div>
-	            				<p class="precioevento">15$</p>
-	            			</div>
-	            			
-	            		</li>
-	            		<li class = "desc-evento-container">
-	            			<div>
-	                        	<h3>Categoría: Mono</h3>
-	                        </div>
-	                         <h2>titulo</h2>
-	                         <p>Ciudad: Madrid</p>
-	                         <p>Sala: manca</p>
-	                         <p>Fecha: mañana</p> 
-	            		</li>
-	            		<li class = "button-evento-container">
-	            			<button class = "stylebutton visitar-exp">COMPRAR</button>
-
-	            		</li>
-	            	</ul>
-            	</div>
-            	<div class = "ultimo-evento">
-	            	<ul>
-	            		<li class = "imagen-evento-container">
-	            			<div>
-	            				<p class="precioevento">15$</p>
-	            			</div>
-	            			
-	            		</li>
-	            		<li class = "desc-evento-container">
-	            			<div>
-	                        	<h3>Categoría: Mono</h3>
-	                        </div>
-	                         <h2>titulo</h2>
-	                         <p>Ciudad: Madrid</p>
-	                         <p>Sala: manca</p>
-	                         <p>Fecha: mañana</p> 
-	            		</li>
-	            		<li class = "button-evento-container">
-	            			<button class = "stylebutton visitar-exp">COMPRAR</button>
-	            		</li>
-	            	</ul>
-            	</div>
+				<c:forEach items="${requestScope.currentEvent.tickets}" var="ticket">
+					
+	            	<div class = "ultimo-evento">
+		            	<ul>
+		            		<li class = "imagen-evento-container">
+		            			<div>
+		            				<p class="precioevento">${ticket.prize}$</p>
+		            			</div>
+		            			
+		            		</li>
+		            		<li class = "desc-evento-container">
+		            			<div>
+		                        	<h3>ID: ${ticket.code}</h3>
+		                        </div>
+		                         <h2>Propietario: ${ticket.user.userName}</h2>
+		                         <h2>Tipo: ${ticket.type}</h2>
+		            		</li>
+		            		<li class = "button-evento-container">
+		            			<button class = "stylebutton visitar-exp-admin">COMPRAR</button>
+		            			
+		            		</li>
+		            	</ul>
+	            	</div>
+            	</c:forEach> 
         	</div>
         </div>
         </div>
+        <footer id = "footer_busqueda">
+            <div id="enlaces">
+                <p><a href="https://terminosycondiciones.es/">Términos y condiciones</a></p>
+                <p><a href="https://support.google.com/adspolicy/answer/6018015?hl=es">Copyright</a></p>
+                <p><a href="https://policies.google.com/privacy?hl=es">Política de privacidad</a></p>
+                <div  id="redes">
+                    <a href="https://twitter.com/DreekenLoL" ><img  alt="link1"src = "images/39552 .png" width="20"height="20"></a>
+                    <a href="https://www.instagram.com/javiperez_4_/"><img  alt="link2" src = "images\1ed9a0fd507968861891b1098f480f4a.png"width="20"height="20"></a>
+                    <a href="https://www.facebook.com/jorge.payno"><img  alt="link3" src = "images/37409.png"width="20"height="20"></a>
+                </div>
+            </div>
+        </footer>
         
         
 </body>

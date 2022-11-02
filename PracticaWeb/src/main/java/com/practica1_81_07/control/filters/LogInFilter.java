@@ -36,7 +36,6 @@ public class LogInFilter extends HttpFilter implements Filter {
 	}
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-		
 		if (!MnUser.checkCredentials(request.getParameter("userName"), request.getParameter("password"))) {
 			request.setAttribute("wrongCredentials", true);
 			request.getRequestDispatcher("logIn.jsp").forward(request, response);

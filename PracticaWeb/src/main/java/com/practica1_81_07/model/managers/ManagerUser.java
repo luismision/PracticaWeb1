@@ -6,6 +6,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
+import com.practica1_81_07.model.Event;
 import com.practica1_81_07.model.User;
 
 public class ManagerUser implements ManagerJpa<User> {
@@ -36,6 +37,23 @@ public class ManagerUser implements ManagerJpa<User> {
 		} 
 		return user;
 	}
+	
+	public boolean update(User user) {
+        
+        try {
+            et.begin();
+            
+            em.merge(user);
+            
+            et.commit();
+        } catch (Exception e) {
+            if(et!= null) {
+                et.rollback();
+            }
+            return false;
+        } 
+        return true;
+    }
 
 	public User findByName(String name){
 		User user; 

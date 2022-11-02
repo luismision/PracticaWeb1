@@ -6,6 +6,10 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -44,6 +48,9 @@ public class CreateTicketHandler implements IHandler{
             event.addTicket(ticket);
             user2.addTicket(ticket);
             MnTicket.insert(ticket);
+            MnUser.update(user2);
+            MnEvent.update(event);
+            
         } catch (ParseException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -51,7 +58,7 @@ public class CreateTicketHandler implements IHandler{
         } catch(Exception e) {
             e.printStackTrace(); 
         }
-        return "evento.jsp";
+        return "/buyTickets";
 
     }
     

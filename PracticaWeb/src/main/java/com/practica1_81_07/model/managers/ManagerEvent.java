@@ -63,6 +63,23 @@ public class ManagerEvent implements ManagerJpa<Event>{
 		} 
 		return true;
 	}
+	
+	public boolean update(Event event) {
+        
+        try {
+            et.begin();
+            
+            em.merge(event);
+            
+            et.commit();
+        } catch (Exception e) {
+            if(et!= null) {
+                et.rollback();
+            }
+            return false;
+        } 
+        return true;
+    }
 
 	public Event findByPk(String name, String city, Date date){
 		Event event;

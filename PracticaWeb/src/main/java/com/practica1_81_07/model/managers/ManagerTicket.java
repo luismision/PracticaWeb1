@@ -37,6 +37,8 @@ public class ManagerTicket implements ManagerJpa<Ticket>{
 		} 
 		return ticket;
 	}
+	
+
 
 	public boolean delete(Ticket ticket) {
 		
