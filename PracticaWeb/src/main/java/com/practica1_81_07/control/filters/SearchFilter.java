@@ -35,7 +35,7 @@ public class SearchFilter extends HttpFilter implements Filter {
 
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {   
-
+	    
 	    if(request.getParameter("search").isEmpty() && request.getParameter("city").isEmpty() 
 	            && request.getParameter("room").isEmpty() && request.getParameter("date").isEmpty()
 	            && request.getParameter("date2").isEmpty() && request.getParameter("category").equals("default")) {

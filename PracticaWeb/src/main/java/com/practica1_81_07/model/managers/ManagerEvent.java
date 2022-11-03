@@ -117,15 +117,14 @@ public class ManagerEvent implements ManagerJpa<Event>{
     }
 
 
-    /*
+ 
     public List<Event> searchFind(List<String> inputs) throws ArrayIndexOutOfBoundsException, IllegalArgumentException, ParseException{
         Query q = em.createNamedQuery("Event.searchBy"); 
         
         if (inputs.get(3).isEmpty() && inputs.get(4).isEmpty()) {
-            Date date2 = new SimpleDateFormat("yyyy-MM-dd").parse("0000-01-01");
-            Date date = new SimpleDateFormat("yyyy-MM-dd").parse("9999-12-31");
-            q.setParameter("date",date); 
-            q.setParameter("date2", date2); 
+
+            q.setParameter("date",null); 
+            q.setParameter("date2", null); 
         }
         else {
             Date date = new SimpleDateFormat("yyyy-MM-dd").parse(inputs.get(3));
@@ -139,12 +138,13 @@ public class ManagerEvent implements ManagerJpa<Event>{
         q.setParameter("city",inputs.get(2));
         q.setParameter("category",inputs.get(5));
         
-        List<Event> results = q.getResultList(); 
+        List<Event> results = q.getResultList();
+        
         return results; 
         
     }
 	
-    */
+    /*
     public List<Event> searchFind(List<String> inputs) {
         String query = "SELECT e FROM Event e where 1=1";
         if(!inputs.get(0).isEmpty()) {
@@ -169,6 +169,6 @@ public class ManagerEvent implements ManagerJpa<Event>{
         List<Event> results = q.getResultList(); 
         return results; 
     }
-	
+	*/
 
 }

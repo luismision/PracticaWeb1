@@ -15,8 +15,8 @@ import java.util.List;
     @NamedQuery(name="Event.findAll", query="SELECT e FROM Event e"),
     @NamedQuery(name="Event.findAllByDate", query="SELECT e FROM Event e ORDER BY e.id.date ASC"),
     @NamedQuery(name="Event.findByPk", query="SELECT e FROM Event e where e.id.name = :name and e.id.city = :city and e.id.date = :date"),
-    @NamedQuery(name="Event.searchBy", query="SELECT e FROM Event e where e.id.name = :name or e.room = :room or e.id.city = :city "
-            + "or (e.id.date > :date and e.id.date < :date2) or e.category = :category")
+    @NamedQuery(name="Event.searchBy", query="SELECT e FROM Event e where (e.id.name = :name or :name  = '') and (e.room = :room  or :room  = '') and (e.id.city = :city or :city  = '') "
+            + "and ((e.id.date >= :date and e.id.date <= :date2) or (:date is null and :date2 is null)) and (e.category = :category or :category = 'default') ")
 })
 public class Event implements Serializable {
 	private static final long serialVersionUID = 1L;
