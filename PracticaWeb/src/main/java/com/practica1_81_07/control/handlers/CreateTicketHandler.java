@@ -41,7 +41,7 @@ public class CreateTicketHandler implements IHandler{
             user2 = MnUser.findByName(user.getUserName());
             date = (Date) new SimpleDateFormat("dd-MM-yyyy").parse(req.getParameter("date"));
             event = MnEvent.findByPk(req.getParameter("name"), req.getParameter("city"), date);
-            ticket.setCode(req.getParameter("code"));
+            
             ticket.setType(req.getParameter("type"));
             BigDecimal prize = new BigDecimal(req.getParameter("prize"));
             ticket.setPrize(prize);

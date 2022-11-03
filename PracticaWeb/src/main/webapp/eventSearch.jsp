@@ -109,25 +109,5 @@
 
              
     <script src = "https://kit.fontawesome.com/4a16a33ac0.js" crossorigin="anonymous"></script> 
-    <script src = "scripts/clases.js"></script>
-    <script src = "scripts/autoGen.js"></script>
-    <script src = "scripts/imageChecker.js"></script>
-    <script src = "scripts/cookiesGenerator.js"></script>
-    <script src = "scripts/localStorageRefresh.js"></script>
-    <script src = "scripts/localStorageHolder.js"></script>
-    <script src = "scripts/genIndex.js"></script>
-    <script src = "scripts/genExp-pop.js"></script>
-    <script src = "scripts/gen-colecciones-pop.js"></script>
-    <script src = "scripts/sticky.js"></script>
-    <!--<script src = "scripts/pop-ups.js"></script>-->
-    <script src = "scripts/search_animation.js"></script>
-    <script src = "scripts/menuoptions.js"></script>
-    <script src = "scripts/sesion.js"></script>
-    <script src = "scripts/menuhover.js"></script>
-    <script src = "scripts/crear-experiencia.js"></script>
-    <script src = "scripts/planificar.js"></script>   
-    <script src = "scripts/crear-coleccion.js"></script>
-    <script src = "scripts/carousel.js"></script>
-    <script src = "scripts/genColeccion.js"></script>
 </body>
 </html>

@@ -40,7 +40,7 @@
               </div>
               <div class="form-group mb-4">
                 <label for="category">Categoría</label>
-                  <select class="styleselect" name="category" id="category" value="${requestScope.currentEvent.category}" >
+                  <select class="styleselect" name="category" id="category" >
                       <option value="Concierto">Concierto</option>
                       <option value="Futbol">Partido de futbol</option>
                       <option value="Baloncesto">Partido de baloncesto</option>

@@ -23,19 +23,16 @@
             <h1 class="login-title">Vender ticket</h1>
             <c:if test = "${!empty requestScope.wrongCredentials}"> Credenciales introducidos incorrectos. Intentelo de nuevo<br></c:if> 
             <form action="/PracticaWeb/createTicket?name=${requestScope.currentEvent.id.name}&city=${requestScope.currentEvent.id.city}&date=${requestScope.currentEvent.id.date}" method = "post">
-              <div class="form-group">
-                <label for="code">Identificador unico de entrada</label>
-                <input type="text" name="code" id="code" class="form-control" placeholder="Ej: MD0432423ADS3" required="required">
-              </div>
+              
               <div class="form-group">
                 <label for="prize">Precio</label>
-                <input type="number" min="0" max="" name="prize" id="prize" class="form-control" placeholder="Ej: 40.5" required="required">
+                <input type="number" step="0.01" min="0" max="" name="prize" id="prize" class="form-control" placeholder="Ej: 40.5" required="required">
               </div>
               <div class="form-group mb-4">
                 <label for="type">Tipo de entrada</label>
                   <select class="styleselect" name="type" id="type" required="required">
-                    <option value="standar">Entrada normal</option>
-                    <option value="reduced">Entrada reducida</option>
+                    <option value="estandar">Entrada normal</option>
+                    <option value="reducida">Entrada reducida</option>
                     <option value="vip">Entrada Vip</option>
                   </select>
               </div>

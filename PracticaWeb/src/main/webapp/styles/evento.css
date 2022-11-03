@@ -805,7 +805,8 @@ html, body {
 	display:flex;
 }
 .fecha-evento-container{
-	width: 15vw;
+	width: 25vw;
+	padding-top:1vw;
 }
 .desc-evento-container{
 	width: 20vw;
@@ -833,7 +834,7 @@ html, body {
 }
 .titulo-evento-container{
 	width: 20vw;
-	padding-left:5vw;
+	padding-left:2vw;
 }
 .titulo-evento-container h2{
 	font-size: 65px;
@@ -844,7 +845,7 @@ html, body {
 	height: 14vw;
 	padding-top: 4vh;
 	margin: auto;
-	width: 55vw;
+	width: 65vw;
 	
 }
 #fechaevento{
@@ -855,8 +856,6 @@ html, body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     z-index:2;
-	width: 70%;
-    margin-left: 10%;
 	
 }
 .precioevento  {
@@ -874,7 +873,7 @@ html, body {
 }
 .info-evento-container{
 	width:25vw;
-	padding-left:8vw;
+	padding-left:4vw;
 	padding-top:10px;
 }
 .info-evento-container p{

@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -14,6 +15,7 @@ import javax.servlet.http.Part;
 
 import com.practica1_81_07.model.Event;
 import com.practica1_81_07.model.EventPK;
+import com.practica1_81_07.model.Ticket;
 import com.practica1_81_07.model.User;
 import com.practica1_81_07.model.managers.ManagerEvent;
 import com.practica1_81_07.model.managers.ManagerUser;
@@ -32,6 +34,7 @@ public class ModifyEventHandler implements IHandler {
         try {
             date = (Date) new SimpleDateFormat("dd-MM-yyyy").parse(req.getParameter("oldDate"));
             event = MnEvent.findByPk(req.getParameter("oldName"), req.getParameter("oldCity"), date);
+            List<Ticket> lista = event.getTickets();
             MnEvent.delete(event);
             eventPk.setName(req.getParameter("name"));
             eventPk.setCity(req.getParameter("city"));
@@ -45,6 +48,8 @@ public class ModifyEventHandler implements IHandler {
             byte[] data = new byte[(int) filePart.getSize()];
             filePart.getInputStream().read(data, 0, data.length);   
             event2.setImagen(data);
+            
+            event2.setTickets(lista);
             MnEvent.insert(event2);
             
         } catch (ParseException e) {

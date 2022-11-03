@@ -117,7 +117,7 @@ public class ManagerEvent implements ManagerJpa<Event>{
     }
 
 
-    @SuppressWarnings("unchecked")
+    /*
     public List<Event> searchFind(List<String> inputs) throws ArrayIndexOutOfBoundsException, IllegalArgumentException, ParseException{
         Query q = em.createNamedQuery("Event.searchBy"); 
         
@@ -144,23 +144,31 @@ public class ManagerEvent implements ManagerJpa<Event>{
         
     }
 	
+    */
+    public List<Event> searchFind(List<String> inputs) {
+        String query = "SELECT e FROM Event e where 1=1";
+        if(!inputs.get(0).isEmpty()) {
+            query += " and e.id.name = " + inputs.get(0);
+        }
+        if(!inputs.get(1).isEmpty()) {
+            query += " and e.room = " + inputs.get(1);
+        }
+        if(!inputs.get(2).isEmpty()) {
+            query += " and e.id.city = " + inputs.get(2);
+        }
+        if(!inputs.get(5).equals("default")) {
+            query += " and e.category = " + inputs.get(5);
+        }
+        if (!inputs.get(3).isEmpty() && !inputs.get(4).isEmpty()) {
+            query += " and (e.id.date > "+ inputs.get(3)+" and e.id.date < "+inputs.get(4)+ ")";
+        }
+  
+        Query q = em.createQuery(query); 
+            
+        
+        List<Event> results = q.getResultList(); 
+        return results; 
+    }
+	
 
-	
-	
-	
-	/*
-	@SuppressWarnings("unchecked")
-	public List<User> findByNameContaining(String name){
-		
-		Query q= em.createNamedQuery("Person.findByNameContaining");
-		q.setParameter("u", name);
-		List <User> lista = q.getResultList();		
-		return lista;
-	}
-	*/
-	
-	
-	/*
-
-	*/
 }

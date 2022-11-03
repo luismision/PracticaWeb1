@@ -14,12 +14,15 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpFilter;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import com.practica1_81_07.model.User;
 
 
 /**
  * Servlet Filter implementation class CreateEventFilter
  */
-@WebFilter({"/createEvent","/modifyEvent"})
+@WebFilter({"/createEvent","/modifyEvent", "/deleteEvent"})
 public class EventFilter extends HttpFilter {
        
 
@@ -34,6 +37,14 @@ public class EventFilter extends HttpFilter {
 	}
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+	    HttpSession session;
+	    session = ((HttpServletRequest) request).getSession(); 
+	    User user = (User) session.getAttribute("currentUser");
+	    if (user == null || !user.getUserName().equals("admin")) {
+	        request.getRequestDispatcher("logIn.jsp").forward(request,response);
+            return; 
+	    }
+	    
 	    Date  now = Date.from(LocalDate.now().atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
 	    Date input;  
 	    try {

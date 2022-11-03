@@ -16,7 +16,8 @@ public class Ticket implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private String code;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int code;
 
 	private BigDecimal prize;
 
@@ -39,11 +40,11 @@ public class Ticket implements Serializable {
 	public Ticket() {
 	}
 
-	public String getCode() {
+	public int getCode() {
 		return this.code;
 	}
 
-	public void setCode(String code) {
+	public void setCode(int code) {
 		this.code = code;
 	}
 
