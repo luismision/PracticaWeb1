@@ -1,7 +1,7 @@
 package com.practica1_81_07.control.handlers;
 
 import java.io.IOException;
-import java.sql.Date;
+import java.util.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
@@ -23,7 +23,9 @@ public class CreateEventHandler implements IHandler{
 		EventPK eventPk = new EventPK();
 		ManagerEvent MnEvent  = new ManagerEvent();
 		
+		
 	    try {          
+	        
 	        Part filePart = req.getPart("imagen");
 	        if (!filePart.getContentType().startsWith("image")) {
 	            return "crearEvento.html"; 

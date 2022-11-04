@@ -16,13 +16,15 @@ import javax.servlet.http.HttpFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import com.practica1_81_07.model.Event;
 import com.practica1_81_07.model.User;
+import com.practica1_81_07.model.managers.ManagerEvent;
 
 
 /**
  * Servlet Filter implementation class CreateEventFilter
  */
-@WebFilter({"/createEvent","/modifyEvent", "/deleteEvent"})
+@WebFilter({"/createEvent","/modifyEvent"})
 public class EventFilter extends HttpFilter {
        
 
@@ -32,37 +34,43 @@ public class EventFilter extends HttpFilter {
     }
 
 
-	public void destroy() {
-		// TODO Auto-generated method stub
-	}
+    public void destroy() {
+        // TODO Auto-generated method stub
+    }
 
-	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-	    HttpSession session;
-	    session = ((HttpServletRequest) request).getSession(); 
-	    User user = (User) session.getAttribute("currentUser");
-	    if (user == null || !user.getUserName().equals("admin")) {
-	        request.getRequestDispatcher("logIn.jsp").forward(request,response);
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+        HttpSession session;
+        session = ((HttpServletRequest) request).getSession(); 
+        User user = (User) session.getAttribute("currentUser");
+        if (user == null || !user.getUserName().equals("admin")) {
+            request.getRequestDispatcher("logIn.jsp").forward(request,response);
             return; 
-	    }
-	    
-	    Date  now = Date.from(LocalDate.now().atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
-	    Date input;  
-	    try {
-	        input = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("date"));
-	        if(input.compareTo(now) < 0) {
-	            request.getRequestDispatcher("crearEvento.html").forward(request,response);
-	            return; 
-	        }
-	    } catch(ParseException e) {
-	        e.getStackTrace();
-	        request.getRequestDispatcher("crearEvento.html").forward(request, response);
-	        return; 
-	    }	     
-		chain.doFilter(request, response);
-	}
+        }
+        Event event_exist; 
+        Date date;
+        ManagerEvent MnEvent  = new ManagerEvent();
+        Date  now = Date.from(LocalDate.now().atStartOfDay().atZone(ZoneId.systemDefault()).toInstant()); 
+        try {
+            date = (Date) new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("date"));
+            event_exist = MnEvent.findByPk(request.getParameter("name"), request.getParameter("city"), date);
+            if (event_exist != null) {
+                request.getRequestDispatcher("crearEvento.html").forward(request, response); 
+            }
 
-	public void init(FilterConfig fConfig) throws ServletException {
-		// TODO Auto-generated method stub
-	}
+            if(date.compareTo(now) < 0) {
+                request.getRequestDispatcher("crearEvento.html").forward(request,response);
+                return; 
+            }
+        } catch(ParseException e) {
+            e.getStackTrace();
+            request.getRequestDispatcher("crearEvento.html").forward(request, response);
+            return; 
+        }        
+        chain.doFilter(request, response);
+    }
+
+    public void init(FilterConfig fConfig) throws ServletException {
+        // TODO Auto-generated method stub
+    }
 
 }
