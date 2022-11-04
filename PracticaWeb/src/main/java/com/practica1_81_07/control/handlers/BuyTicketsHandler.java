@@ -27,6 +27,7 @@ public class BuyTicketsHandler implements IHandler {
             date = (Date) new SimpleDateFormat("dd-MM-yyyy").parse(req.getParameter("date"));
             event = MnEvent.findByPk(req.getParameter("name"), req.getParameter("city"), date);
             req.setAttribute("currentEvent", event);
+            
             return "evento.jsp";
         } catch (ParseException e) {
             // TODO Auto-generated catch block

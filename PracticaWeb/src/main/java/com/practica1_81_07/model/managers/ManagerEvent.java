@@ -73,6 +73,7 @@ public class ManagerEvent implements ManagerJpa<Event>{
             
             et.commit();
         } catch (Exception e) {
+            System.out.println("llega4");
             if(et!= null) {
                 et.rollback();
             }

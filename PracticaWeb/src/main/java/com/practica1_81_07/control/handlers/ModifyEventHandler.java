@@ -49,13 +49,19 @@ public class ModifyEventHandler implements IHandler {
             filePart.getInputStream().read(data, 0, data.length);   
             event2.setImagen(data);
             
-            event2.setTickets(lista);
-            /*
-            for (Ticket ticket: lista) {
-                ticket.setEvent(event2);
-                MnTicket.insert(ticket);
-            }*/
             MnEvent.insert(event2);
+            for (Ticket ticket: lista) {
+                Ticket ticketnuevo = new Ticket();
+                ticketnuevo.setType(ticket.getType());
+                ticketnuevo.setPrize(ticket.getPrize());
+                ticketnuevo.setUser(ticket.getUser());
+                System.out.println(ticket.getCode());
+                event2.addTicket(ticketnuevo);
+                MnTicket.insert(ticketnuevo);
+
+            }
+            MnEvent.update(event2);
+            
             
         } catch (ParseException e) {
             // TODO Auto-generated catch block
