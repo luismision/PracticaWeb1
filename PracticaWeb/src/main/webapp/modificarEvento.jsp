@@ -22,10 +22,10 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-6 login-section-wrapper">
-          <a href = "/PracticaWeb"><img id = "logo-img" alt="logo" src="/PracticaWeb/images/logo.png"></a>
+          <a href = "/ticketsell8107"><img id = "logo-img" alt="logo" src="/ticketsell8107/images/logo.png"></a>
           <div class="login-wrapper my-auto">
             <h1 class="login-title">Modificar evento</h1>
-            <form action="/PracticaWeb/modifyEvent?oldName=${requestScope.currentEvent.id.name}&oldCity=${requestScope.currentEvent.id.city}&oldDate=${requestScope.currentEvent.id.date}" method = "post" enctype="multipart/form-data">
+            <form action="/ticketsell8107/modifyEvent?oldName=${requestScope.currentEvent.id.name}&oldCity=${requestScope.currentEvent.id.city}&oldDate=${requestScope.currentEvent.id.date}" method = "post" enctype="multipart/form-data">
               <div class="form-group">
                 <label for="name">Nombre del evento</label>
                 <input type="text" name="name" id="name" class="form-control" maxlength = "50" value="${requestScope.currentEvent.id.name}" placeholder="Nombre del evento" required="required">
@@ -72,7 +72,7 @@
           </div>
         </div>
         <div class="col-sm-6 px-0 d-none d-sm-block">
-          <img src="/PracticaWeb/images/login.jpg" alt="login image" class="login-img">
+          <img src="/ticketsell8107/images/login.jpg" alt="login image" class="login-img">
         </div>
       </div>
     </div>

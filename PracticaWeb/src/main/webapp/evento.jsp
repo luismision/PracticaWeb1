@@ -18,23 +18,23 @@
 	<nav id = "header">
             <ul>    
                 <li id = "logo_container" >
-                	<a href ="/PracticaWeb" target="_blank"><img  id = "logo"  src = "/PracticaWeb/images/logo.png" alt="logo"></a>
+                	<a href ="/ticketsell8107" target="_blank"><img  id = "logo"  src = "/ticketsell8107/images/logo.png" alt="logo"></a>
                 </li>
                 <li id = "search_container" >
                 </li> 
                 <li id = "sesion_container">
                 	<ul>
 	               		<li id = "username_container"><c:if test = "${!empty sessionScope.currentUser}"> <h2><c:out value="${sessionScope.currentUser.userName}"/></h2></c:if></li>
-	                	<li id = "log_out_button_container"><c:if test = "${!empty sessionScope.currentUser}"><a href = "/PracticaWeb/logOut"><button id = "log_out_button" class = "stylebutton">CERRAR SESIÓN</button></a></c:if></li>
+	                	<li id = "log_out_button_container"><c:if test = "${!empty sessionScope.currentUser}"><a href = "/ticketsell8107/logOut"><button id = "log_out_button" class = "stylebutton">CERRAR SESIÓN</button></a></c:if></li>
                 	</ul> 
-                    <c:if test = "${empty sessionScope.currentUser}"> <a href = "/PracticaWeb/logIn.jsp"><button id = "log_in_button" class = "stylebutton">INICIAR SESIÓN</button></a></c:if>		  
+                    <c:if test = "${empty sessionScope.currentUser}"> <a href = "/ticketsell8107/logIn.jsp"><button id = "log_in_button" class = "stylebutton">INICIAR SESIÓN</button></a></c:if>		  
                 </li>  
             </ul>
         </nav>
         <div class="containerfull">
         
-         	<img class="imagenBlur" src="/PracticaWeb/getImage?name=${requestScope.currentEvent.id.name}&city=${requestScope.currentEvent.id.city}&date=${requestScope.currentEvent.id.date}">
-         	<img class="imagenEvento" src="/PracticaWeb/getImage?name=${requestScope.currentEvent.id.name}&city=${requestScope.currentEvent.id.city}&date=${requestScope.currentEvent.id.date}">
+         	<img class="imagenBlur" src="/ticketsell8107/getImage?name=${requestScope.currentEvent.id.name}&city=${requestScope.currentEvent.id.city}&date=${requestScope.currentEvent.id.date}">
+         	<img class="imagenEvento" src="/ticketsell8107/getImage?name=${requestScope.currentEvent.id.name}&city=${requestScope.currentEvent.id.city}&date=${requestScope.currentEvent.id.date}">
          	
          	<div class="info">
          	<div id = ultimas-container-info>
@@ -64,7 +64,7 @@
         </div>
         <div id = "ultimas-experiencias" class = "container">
         	<c:if test = "${!empty sessionScope.currentUser}">
-        		<a href="/PracticaWeb/createTicketPage?name=${requestScope.currentEvent.id.name}&city=${requestScope.currentEvent.id.city}&date=${requestScope.currentEvent.id.date}">
+        		<a href="/ticketsell8107/createTicketPage?name=${requestScope.currentEvent.id.name}&city=${requestScope.currentEvent.id.city}&date=${requestScope.currentEvent.id.date}">
         			<button class = "stylebutton vender-ticket-button">VENDER TICKET</button>
         		</a>
         	</c:if>
