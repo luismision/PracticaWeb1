@@ -18,11 +18,11 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-6 login-section-wrapper">
-          <a href = "/PracticaWeb"><img id = "logo-img" alt="logo" src="/PracticaWeb/images/logo.png"></a>
+          <a href = "/ticketsell8107"><img id = "logo-img" alt="logo" src="/ticketsell8107/images/logo.png"></a>
           <div class="login-wrapper my-auto">
             <h1 class="login-title">Vender ticket</h1>
             <c:if test = "${!empty requestScope.wrongCredentials}"> Credenciales introducidos incorrectos. Intentelo de nuevo<br></c:if> 
-            <form action="/PracticaWeb/createTicket?name=${requestScope.currentEvent.id.name}&city=${requestScope.currentEvent.id.city}&date=${requestScope.currentEvent.id.date}" method = "post">
+            <form action="/ticketsell8107/createTicket?name=${requestScope.currentEvent.id.name}&city=${requestScope.currentEvent.id.city}&date=${requestScope.currentEvent.id.date}" method = "post">
               
               <div class="form-group">
                 <label for="prize">Precio</label>
@@ -42,7 +42,7 @@
           </div>
         </div>
         <div class="col-sm-6 px-0 d-none d-sm-block">
-          <img src="/PracticaWeb/images/concert-tickets.jpg" alt="login image" class="login-img">
+          <img src="/ticketsell8107/images/concert-tickets.jpg" alt="login image" class="login-img">
         </div>
       </div>
     </div>

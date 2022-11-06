@@ -38,15 +38,12 @@ public class ModifyEventHandler implements IHandler {
         try {
             
             old_date = (Date) new SimpleDateFormat("dd-MM-yyyy").parse(req.getParameter("oldDate"));
-            System.out.println("Hoaol");
             event = MnEvent.findByPk(req.getParameter("oldName"), req.getParameter("oldCity"), old_date);
             System.out.print(event.getId().getName());
             List<Ticket> lista = event.getTickets();
-            System.out.print("lista");
             MnEvent.delete(event);           
             date = (Date) new SimpleDateFormat("yyyy-MM-dd").parse(req.getParameter("date"));
-            event_exist = MnEvent.findByPk(req.getParameter("name"), req.getParameter("city"), date);
-            System.out.print("eventexist"); 
+            event_exist = MnEvent.findByPk(req.getParameter("name"), req.getParameter("city"), date); 
             if (event_exist != null) {
                 return "crearEvento.html"; 
             }
@@ -60,14 +57,12 @@ public class ModifyEventHandler implements IHandler {
             event2.setCategory(req.getParameter("category"));
             event2.setRoom(req.getParameter("room"));
             event2.setDescription(req.getParameter("description"));
-            System.out.print("antes foto"); 
             Part filePart = req.getPart("imagen");
             byte[] data = new byte[(int) filePart.getSize()];
             filePart.getInputStream().read(data, 0, data.length);   
             event2.setImagen(data);
             
             MnEvent.insert(event2);
-            System.out.print("holiads"); 
             for (Ticket ticket: lista) {
                 Ticket ticketnuevo = new Ticket();
                 ticketnuevo.setType(ticket.getType());
