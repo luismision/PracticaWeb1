@@ -34,6 +34,7 @@ public class SignInHandler implements IHandler {
 	        Statement st = conn.createStatement();
         	user = new User();
         	user.setUserName(req.getParameter("userName"));
+        	user.setFullName(req.getParameter("fullName"));
         	user.setPassword(req.getParameter("password"));		
         	user.setAddress(req.getParameter("address"));
         	user.setPhone(req.getParameter("phone"));

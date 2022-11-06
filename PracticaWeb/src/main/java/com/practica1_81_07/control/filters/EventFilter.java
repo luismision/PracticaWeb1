@@ -24,7 +24,7 @@ import com.practica1_81_07.model.managers.ManagerEvent;
 /**
  * Servlet Filter implementation class CreateEventFilter
  */
-@WebFilter({"/createEvent","/modifyEvent"})
+@WebFilter({"/createEvent"})
 public class EventFilter extends HttpFilter {
        
 

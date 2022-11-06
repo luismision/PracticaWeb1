@@ -28,15 +28,15 @@
             <form action="/PracticaWeb/modifyEvent?oldName=${requestScope.currentEvent.id.name}&oldCity=${requestScope.currentEvent.id.city}&oldDate=${requestScope.currentEvent.id.date}" method = "post" enctype="multipart/form-data">
               <div class="form-group">
                 <label for="name">Nombre del evento</label>
-                <input type="text" name="name" id="name" class="form-control" value="${requestScope.currentEvent.id.name}" placeholder="Nombre del evento" required="required">
+                <input type="text" name="name" id="name" class="form-control" maxlength = "50" value="${requestScope.currentEvent.id.name}" placeholder="Nombre del evento" required="required">
               </div>
               <div class="form-group mb-4">
                 <label for="city">Ciudad</label>
-                <input type="text" name="city" id="city" class="form-control" value="${requestScope.currentEvent.id.city}" placeholder="Introduzca la ciudad" required="required">
+                <input type="text" name="city" id="city" class="form-control" maxlength = "50" value="${requestScope.currentEvent.id.city}" placeholder="Introduzca la ciudad" required="required">
               </div>
               <div class="form-group mb-4">
                 <label for="sala">Sala</label>
-                <input type="text" name="room" id="room" class="form-control" value="${requestScope.currentEvent.room}" placeholder="Introduzca la sala del evento" required="required">
+                <input type="text" name="room" id="room" class="form-control" maxlength = "50" value="${requestScope.currentEvent.room}" placeholder="Introduzca la sala del evento" required="required">
               </div>
               <div class="form-group mb-4">
                 <label for="category">Categoría</label>
@@ -64,7 +64,7 @@
                </div>
               <div class="form-group mb-4">
                 <label for="description">Descripción</label>
-                <textarea id="description" name="description" rows="4" cols="50" placeholder="Descripcion del evento...">${requestScope.currentEvent.description}</textarea>
+                <textarea id="description" name="description" rows="4" cols="50" maxlength = "1000" placeholder="Descripcion del evento...">${requestScope.currentEvent.description}</textarea>
               </div>
              
               <input name="createEvent" id="createEvent" class="btn btn-block login-btn" type="submit" value="Modificar evento">

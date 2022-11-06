@@ -400,9 +400,13 @@ html, body {
 	width: 10vw;
 	height: 10vw;
 }
+#descripcionevento{
+	height: 6vw;
+}
 .desc-evento-container{
 	width: 20vw;
 	padding-top:2.5vh;
+	overflow:hidden;
 }
 .desc-evento-container div{
     justify-content: space-between;
@@ -875,6 +879,7 @@ html, body {
 	width:25vw;
 	padding-left:4vw;
 	padding-top:10px;
+	overflow:hidden;
 }
 .info-evento-container p{
 	font-family: Poppins;

@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
     <title>Riditickets</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/evento.css"/>
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>

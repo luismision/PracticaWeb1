@@ -26,15 +26,15 @@
             <form action="/PracticaWeb/signIn" method = "post">
               <div class="form-group">
                 <label for="userName">Nombre de usuario</label>
-                <input type="text" name="userName" id="userName" class="form-control" placeholder="Introduzca un nombre de usuario" required = "required">
+                <input type="text" name="userName" id="userName" class="form-control" maxlength = "20" placeholder="Introduzca un nombre de usuario" required = "required">
               </div>
               <div class="form-group">
                 <label for="fullName">Nombre completo</label>
-                <input type="text" name="fullName" id="fullName" class="form-control" placeholder="Su nombre y apellidos" required = "required">
+                <input type="text" name="fullName" id="fullName" class="form-control" maxlength = "50" placeholder="Su nombre y apellidos" required = "required">
               </div>
               <div class="form-group">
                 <label for="address">Dirección</label>
-                <input type="text" name="address" id="address" class="form-control" placeholder="Ej: Avenida de la albufera"  required = "required">
+                <input type="text" name="address" id="address" class="form-control" maxlength = "100" placeholder="Ej: Avenida de la albufera"  required = "required">
               </div>
               <div class="form-group">
                 <label for="phone">Teléfono</label>

@@ -33,8 +33,7 @@
           <input id="date" class="search-input" type="date" name="date">
           <input id="date" class="search-input" type="date" name="date2">
            <select class="search-input" name="category" id="category">
-           	   <option value="default">Tipo de evento</option>	
-           	   <option value="any">Cualquiera</option>
+           	   <option value="default">Cualquiera</option>
                <option value="Concierto">Concierto</option>
                <option value="Futbol">Partido de futbol</option>
                <option value="Baloncesto">Partido de baloncesto</option>

@@ -25,11 +25,11 @@
             <form action="/PracticaWeb/logIn" method = "post">
               <div class="form-group">
                 <label for="userName">Nombre de usuario</label>
-                <input type="text" name="userName" id="userName" class="form-control" placeholder="Introduzca su nombre de usuario" required="required">
+                <input type="text" name="userName" id="userName" class="form-control" maxlength = "20" placeholder="Introduzca su nombre de usuario" required="required">
               </div>
               <div class="form-group mb-4">
                 <label for="password">Password</label>
-                <input type="password" name="password" id="password" class="form-control" placeholder="Introduzca su contraseña" required="required">
+                <input type="password" name="password" id="password" class="form-control" maxlength = "20" placeholder="Introduzca su contraseña" required="required">
               </div>
               <input name="login" id="login" class="btn btn-block login-btn" type="submit" value="Iniciar sesion">
             </form>

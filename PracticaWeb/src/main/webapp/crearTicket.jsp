@@ -26,7 +26,7 @@
               
               <div class="form-group">
                 <label for="prize">Precio</label>
-                <input type="number" step="0.01" min="0" max="" name="prize" id="prize" class="form-control" placeholder="Ej: 40.5" required="required">
+                <input type="number" step="0.01" min="0" max="999999999" name="prize" id="prize" class="form-control" placeholder="Ej: 40.5" required="required">
               </div>
               <div class="form-group mb-4">
                 <label for="type">Tipo de entrada</label>

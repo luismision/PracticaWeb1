@@ -798,6 +798,7 @@ html, body {
 }
 .desc-evento-container{
 	width: 20vw;
+	overflow:hidden;
 }
 .desc-evento-container div{
     justify-content: space-between;
