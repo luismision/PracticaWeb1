@@ -50,12 +50,12 @@ public class ModifyEventHandler implements IHandler {
             event2.setImagen(data);
             
             MnEvent.insert(event2);
+            
             for (Ticket ticket: lista) {
                 Ticket ticketnuevo = new Ticket();
                 ticketnuevo.setType(ticket.getType());
                 ticketnuevo.setPrize(ticket.getPrize());
                 ticketnuevo.setUser(ticket.getUser());
-                System.out.println(ticket.getCode());
                 event2.addTicket(ticketnuevo);
                 MnTicket.insert(ticketnuevo);
 

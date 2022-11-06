@@ -2,6 +2,7 @@ package com.practica1_81_07.control;
 
 
 import java.io.IOException;
+import java.net.UnknownServiceException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -95,7 +96,7 @@ public class MainController extends HttpServlet {
 			}
 		}
 		else {
-			response.sendError(404);
+			throw new UnknownServiceException("Not Found");
 		}				
 
 	}
