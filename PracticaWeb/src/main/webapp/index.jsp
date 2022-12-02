@@ -17,16 +17,16 @@
   </head>
   <body>
     <c:if test = "${empty sessionScope.currentUser}">
-  	  <a href = "/ticketsell8107/logIn.jsp"><button id = "log_in_button" class = "stylebutton log_in_out_button">INICIAR SESIÓN</button></a>
+  	  <a href = "/USER8107/logIn.jsp"><button id = "log_in_button" class = "stylebutton log_in_out_button">INICIAR SESIÓN</button></a>
     </c:if>
   	<c:if test = "${!empty sessionScope.currentUser}">
       <h2 id="username">${sessionScope.currentUser.userName}</h2>
-      <a href="/ticketsell8107/logOut"><button id = "log_out_button" class = "stylebutton log_in_out_button">CERRAR SESIÓN</button></a>
+      <a href="/USER8107/logOut"><button id = "log_out_button" class = "stylebutton log_in_out_button">CERRAR SESIÓN</button></a>
     </c:if>
   	<img id="background-image" src="images/experiencias_memorables-1066911468.jpg">
   	<div id = "main-div">
   		<div id = "searh-container">
-        <form id = "search-form" action="/ticketsell8107/searchEvent" method="post" >
+        <form id = "search-form" action="/USER8107/searchEvent" method="post" >
           <input id="text-input" type="text" name="search" class="search-input" placeholder="Nombre del evento..." />
           <input id="city" name="city" type="text" class="search-input" placeholder="Ciudad..."/> 
           <input id="sala" name="room" type="text" class="search-input" placeholder="Sala o estadio..."/> 
@@ -44,7 +44,7 @@
         </form>
   		</div>
   		<div  id = "ver_eventos_button_container">
-  			<a href = "/ticketsell8107/nextEvents"><button id = "ver_eventos_button" class = "stylebutton">VER TODOS LOS EVENTOS</button></a>
+  			<a href = "/USER8107/nextEvents"><button id = "ver_eventos_button" class = "stylebutton">VER TODOS LOS EVENTOS</button></a>
   		</div>
   	</div>
   	

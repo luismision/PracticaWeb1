@@ -17,16 +17,16 @@
         <nav id = "header">
             <ul>    
                 <li id = "logo_container" >
-                	<a href ="/ticketsell8107" target="_blank"><img  id = "logo"  src = "/ticketsell8107/images/logo.png" alt="logo"></a>
+                	<a href ="/USER8107" target="_blank"><img  id = "logo"  src = "/USER8107/images/logo.png" alt="logo"></a>
                 </li>
                 <li id = "search_container" >
                 </li> 
                 <li id = "sesion_container">
                 	<ul>
 	               		<li id = "username_container"><c:if test = "${!empty sessionScope.currentUser}"> <h2><c:out value="${sessionScope.currentUser.userName}"/></h2></c:if></li>
-	                	<li id = "log_out_button_container"><c:if test = "${!empty sessionScope.currentUser}"><a href = "/ticketsell8107/logOut"><button id = "log_out_button" class = "stylebutton">CERRAR SESIÓN</button></a></c:if></li>
+	                	<li id = "log_out_button_container"><c:if test = "${!empty sessionScope.currentUser}"><a href = "/USER8107/logOut"><button id = "log_out_button" class = "stylebutton">CERRAR SESIÓN</button></a></c:if></li>
                 	</ul> 
-                    <c:if test = "${empty sessionScope.currentUser}"> <a href = "/ticketsell8107/logIn.jsp"><button id = "log_in_button" class = "stylebutton">INICIAR SESIÓN</button></a></c:if>		  
+                    <c:if test = "${empty sessionScope.currentUser}"> <a href = "/USER8107/logIn.jsp"><button id = "log_in_button" class = "stylebutton">INICIAR SESIÓN</button></a></c:if>		  
                 </li>  
             </ul>
         </nav>
@@ -39,7 +39,7 @@
        		</div>
             <div id = "ultimas-container">
 				<div id = "search-container">
-					<form id = "search-form" action="/ticketsell8107/searchEvent" method="post" >
+					<form id = "search-form" action="/USER8107/searchEvent" method="post" >
 			          <input id="text-input" type="text" name="search" class="search-input" placeholder="Nombre del evento..." />
 			          <input id="city" name="city" type="text" class="search-input" placeholder="Ciudad..."/> 
 			          <input id="sala" name="room" type="text" class="search-input" placeholder="Sala o estadio..."/> 
@@ -61,29 +61,29 @@
 	            	<ul>
 	            		<li class = "imagen-evento-container">
 	            			<div>
-	            				<img src = "/ticketsell8107/getImage?name=${event.id.name}&city=${event.id.city}&date=${event.id.date}"/>
+	            				<img src = "/USER8107/getImage?id=${event.id}"/>
 	            			</div>  			
 	            		</li>
 	            		<li class = "desc-evento-container">
 	            			<div>
 	                        	<h3>Categoría: ${event.category} </h3>
 	                        </div>
-	                         <h2>${event.id.name}</h2>
-	                         <p>Ciudad: ${event.id.city}</p>
+	                         <h2>${event.name}</h2>
+	                         <p>Ciudad: ${event.city}</p>
 	                         <p>Sala: ${event.room}</p>
-	                         <p>Fecha: ${event.id.date}</p> 
+	                         <p>Fecha: ${event.date}</p> 
 	            		</li>
 	            		<c:choose>
 							  <c:when test="${sessionScope.currentUser.userName == 'admin'}">
 							  	<li class = "button-evento-container">
-			            			<a href="/ticketsell8107/buyTickets?name=${event.id.name}&city=${event.id.city}&date=${event.id.date}"><button class = "stylebutton visitar-exp-admin">COMPRAR ENTRADAS</button></a>
-			            			<a href="/ticketsell8107/modifyEventPage?name=${event.id.name}&city=${event.id.city}&date=${event.id.date}"><button class = "stylebutton visitar-exp-admin">MODIFICAR EVENTO</button></a>
-			            			<a href="/ticketsell8107/deleteEvent?name=${event.id.name}&city=${event.id.city}&date=${event.id.date}"><button class = "stylebutton visitar-exp-admin">ELIMINAR EVENTO</button></a>
+			            			<a href="/USER8107/buyTickets?name=${event.name}&city=${event.city}&date=${event.date}"><button class = "stylebutton visitar-exp-admin">COMPRAR ENTRADAS</button></a>
+			            			<a href="/USER8107/modifyEventPage?name=${event.name}&city=${event.city}&date=${event.date}"><button class = "stylebutton visitar-exp-admin">MODIFICAR EVENTO</button></a>
+			            			<a href="/USER8107/deleteEvent?name=${event.name}&city=${event.city}&date=${event.date}"><button class = "stylebutton visitar-exp-admin">ELIMINAR EVENTO</button></a>
 	            				</li>
 							  </c:when>
 							  <c:otherwise>
 							   	<li class = "button-evento-container">
-	            					<a href="/ticketsell8107/buyTickets?name=${event.id.name}&city=${event.id.city}&date=${event.id.date}"><button class = "stylebutton visitar-exp">COMPRAR ENTRADAS</button></a>
+	            					<a href="/USER8107/buyTickets?name=${event.name}&city=${event.city}&date=${event.date}"><button class = "stylebutton visitar-exp">COMPRAR ENTRADAS</button></a>
 	            				</li>
 							  </c:otherwise>
 						</c:choose>

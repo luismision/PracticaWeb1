@@ -3,7 +3,6 @@
 	<persistence-unit name="PracticaWebShared" transaction-type="RESOURCE_LOCAL">
 		<non-jta-data-source>jdbc/tiwds</non-jta-data-source>
 		<class>com.practica1_81_07.model.Event</class>
-		<class>com.practica1_81_07.model.EventPK</class>
 		<class>com.practica1_81_07.model.Ticket</class>
 		<class>com.practica1_81_07.model.User</class>
 

@@ -18,11 +18,11 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-6 login-section-wrapper">
-          <a href = "/ticketsell8107"><img id = "logo-img" alt="logo" src="/ticketsell8107/images/logo.png"></a>
+          <a href = "/USER8107"><img id = "logo-img" alt="logo" src="/USER8107/images/logo.png"></a>
           <div class="login-wrapper my-auto">
             <h1 class="login-title">Log in</h1>
             <c:if test = "${!empty requestScope.wrongCredentials}"> Credenciales introducidos incorrectos. Intentelo de nuevo<br></c:if> 
-            <form action="/ticketsell8107/logIn" method = "post">
+            <form action="/USER8107/logIn" method = "post">
               <div class="form-group">
                 <label for="userName">Nombre de usuario</label>
                 <input type="text" name="userName" id="userName" class="form-control" maxlength = "20" placeholder="Introduzca su nombre de usuario" required="required">
@@ -33,11 +33,11 @@
               </div>
               <input name="login" id="login" class="btn btn-block login-btn" type="submit" value="Iniciar sesion">
             </form>
-            <p class="login-wrapper-footer-text">¿No tienes una cuenta? <a href="/ticketsell8107/signIn.jsp" class="text-reset">Registrate aquí</a></p>
+            <p class="login-wrapper-footer-text">¿No tienes una cuenta? <a href="/USER8107/signIn.jsp" class="text-reset">Registrate aquí</a></p>
           </div>
         </div>
         <div class="col-sm-6 px-0 d-none d-sm-block">
-          <img src="/ticketsell8107/images/concierto.jpg" alt="login image" class="login-img">
+          <img src="/USER8107/images/concierto.jpg" alt="login image" class="login-img">
         </div>
       </div>
     </div>

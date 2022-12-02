@@ -11,6 +11,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.InternalServerErrorException;
+import javax.ws.rs.client.Client;
 
 import com.practica1_81_07.model.User;
 
@@ -28,31 +34,22 @@ public class SignInHandler implements IHandler {
 		User user = null;
 		
 		try {
-			payaraContext = new InitialContext();
-			ds = (DataSource) payaraContext.lookup("jdbc/tiwds");
-	        Connection conn = ds.getConnection();	
-	        Statement st = conn.createStatement();
+		    Client client = ClientBuilder.newClient();
+            WebTarget webResource = client.target("http://localhost:10701").path("users");
+            
         	user = new User();
         	user.setUserName(req.getParameter("userName"));
         	user.setFullName(req.getParameter("fullName"));
         	user.setPassword(req.getParameter("password"));		
         	user.setAddress(req.getParameter("address"));
         	user.setPhone(req.getParameter("phone"));
-        	st.execute("INSERT INTO USERS VALUES ( '" + user.getUserName() + "','" + user.getPassword() + "','" + user.getFullName() + "','" + user.getAddress() + "'," + user.getPhone() + ");");
-        	st.close();
-        	conn.close();
-        	session.setAttribute("currentUser", user);
+
+        	User result=  webResource.request("application/json").accept("application/json").post(Entity.entity(user,MediaType.APPLICATION_JSON),User.class);
+        	session.setAttribute("currentUser", result);
         	return "index.jsp";
-	    	
-        	
-    	}catch(SQLTimeoutException e) {
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (NamingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+	    
+		} catch (InternalServerErrorException e) {
+            e.printStackTrace();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

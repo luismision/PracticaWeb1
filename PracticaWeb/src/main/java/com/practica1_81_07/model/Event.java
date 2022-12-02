@@ -2,6 +2,15 @@ package com.practica1_81_07.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import org.eclipse.persistence.internal.oxm.conversion.Base64;
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
+
+
 import java.util.List;
 
 
@@ -11,18 +20,21 @@ import java.util.List;
  */
 @Entity
 @Table(name="events")
-@NamedQueries({
-    @NamedQuery(name="Event.findAll", query="SELECT e FROM Event e"),
-    @NamedQuery(name="Event.findAllByDate", query="SELECT e FROM Event e ORDER BY e.id.date ASC"),
-    @NamedQuery(name="Event.findByPk", query="SELECT e FROM Event e where e.id.name = :name and e.id.city = :city and e.id.date = :date"),
-    @NamedQuery(name="Event.searchBy", query="SELECT e FROM Event e where (e.id.name = :name or :name  = '') and (e.room = :room  or :room  = '') and (e.id.city = :city or :city  = '') "
-            + "and ((e.id.date >= :date and e.id.date <= :date2) or (:date is null and :date2 is null)) and (e.category = :category or :category = 'default') ")
-})
+
 public class Event implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@EmbeddedId
-	private EventPK id;
+
+	@Id
+	private int id; 
+
+	private String name;
+
+	private String city;
+
+	@Temporal(TemporalType.DATE)
+	private java.util.Date date;
+
 
 	private String category;
 
@@ -40,13 +52,41 @@ public class Event implements Serializable {
 	public Event() {
 	}
 
-	public EventPK getId() {
-		return this.id;
+	public String getName() {
+		return this.name;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public void setId(EventPK id) {
-		this.id = id;
+	public String getCity() {
+		return this.city;
 	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+    public String getDate() {
+        DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");  
+        String strDate = dateFormat.format(this.date); 
+        return strDate;
+    }
+
+    public void setDate(String date) throws ParseException { 
+        java.util.Date date1 = new SimpleDateFormat("yyyy-MM-dd").parse(date);  
+        this.date = date1;
+    }
+
+
+	public int getId() {
+		return this.id;
+	}
+	
+	public void setId(int id) {
+	    this.id = id;
+    }
 
 	public String getCategory() {
 		return this.category;
@@ -68,9 +108,10 @@ public class Event implements Serializable {
 		return this.imagen;
 	}
 
-	public void setImagen(byte[] imagen) {
-		this.imagen = imagen;
+	public void setImagen(String imagen) {
+		this.imagen = Base64.base64Decode(imagen.getBytes());
 	}
+
 
 	public String getRoom() {
 		return this.room;

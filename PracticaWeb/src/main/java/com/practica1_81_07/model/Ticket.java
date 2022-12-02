@@ -2,6 +2,11 @@ package com.practica1_81_07.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+
+import java.util.List;
+
+import javax.persistence.*;
 import java.math.BigDecimal;
 
 
@@ -11,7 +16,6 @@ import java.math.BigDecimal;
  */
 @Entity
 @Table(name="tickets")
-@NamedQuery(name="Ticket.findAll", query="SELECT t FROM Ticket t")
 public class Ticket implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -25,11 +29,7 @@ public class Ticket implements Serializable {
 
 	//bi-directional many-to-one association to Event
 	@ManyToOne
-	@JoinColumns({
-		@JoinColumn(name="eventCity", referencedColumnName="city"),
-		@JoinColumn(name="eventDate", referencedColumnName="date"),
-		@JoinColumn(name="eventName", referencedColumnName="name")
-		})
+	@JoinColumn(name="eventid", referencedColumnName="id")
 	private Event event;
 
 	//bi-directional many-to-one association to User

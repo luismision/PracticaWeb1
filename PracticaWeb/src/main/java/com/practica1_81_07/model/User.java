@@ -1,7 +1,8 @@
 package com.practica1_81_07.model;
-
 import java.io.Serializable;
 import javax.persistence.*;
+
+
 import java.util.List;
 
 
@@ -11,20 +12,16 @@ import java.util.List;
  */
 @Entity
 @Table(name="users")
-@NamedQueries({
-    @NamedQuery(name="User.findAll", query="SELECT u FROM User u"),
-    @NamedQuery(name="User.findByName", query="SELECT u FROM User u where u.userName = :name ")
-    /*@NamedQuery(name="User.findByNameContaining", query="SELECT u FROM User u where u.userName LIKE CONCAT('%',:name,'%')")*/
-})
+
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private String userName;
+	private String username;
 
 	private String address;
 
-	private String fullName;
+	private String fullname;
 
 	private String password;
 
@@ -38,11 +35,11 @@ public class User implements Serializable {
 	}
 
 	public String getUserName() {
-		return this.userName;
+		return this.username;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUserName(String username) {
+		this.username = username;
 	}
 
 	public String getAddress() {
@@ -54,11 +51,11 @@ public class User implements Serializable {
 	}
 
 	public String getFullName() {
-		return this.fullName;
+		return this.fullname;
 	}
 
-	public void setFullName(String fullName) {
-		this.fullName = fullName;
+	public void setFullName(String fullname) {
+		this.fullname = fullname;
 	}
 
 	public String getPassword() {

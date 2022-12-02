@@ -9,7 +9,12 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpFilter;
-import com.practica1_81_07.model.managers.ManagerUser;
+import javax.ws.rs.NotFoundException;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.WebTarget;
+
+import com.practica1_81_07.model.User;
 
 
 /**
@@ -19,7 +24,6 @@ import com.practica1_81_07.model.managers.ManagerUser;
 public class LogInFilter extends HttpFilter implements Filter {
        
 	private static final long serialVersionUID = 1L;
-	ManagerUser MnUser;
 	
     public LogInFilter() {
         super();
@@ -28,7 +32,6 @@ public class LogInFilter extends HttpFilter implements Filter {
     
 	public void init(FilterConfig fConfig) throws ServletException {
 		// TODO Auto-generated method stub
-		MnUser = new ManagerUser();
 	}
  
 	public void destroy() {
@@ -36,7 +39,17 @@ public class LogInFilter extends HttpFilter implements Filter {
 	}
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-		if (!MnUser.checkCredentials(request.getParameter("userName"), request.getParameter("password"))) {
+	    User user;
+	    Client client = ClientBuilder.newClient();
+        WebTarget webResource = client.target("http://localhost:10701").path("users")
+                .path(request.getParameter("userName"));
+        try {
+            user =  webResource.request().accept("application/json").get(User.class);
+        }
+        catch(NotFoundException e) {
+            user = null;
+        }
+		if (user == null || !user.getPassword().equals(request.getParameter("password"))) {
 			request.setAttribute("wrongCredentials", true);
 			request.getRequestDispatcher("logIn.jsp").forward(request, response);
 			return;

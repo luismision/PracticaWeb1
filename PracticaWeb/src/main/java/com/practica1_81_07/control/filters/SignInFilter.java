@@ -18,6 +18,12 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpFilter;
 
 import javax.sql.DataSource;
+import javax.ws.rs.NotFoundException;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.WebTarget;
+
+import com.practica1_81_07.model.User;
 
 
 /**
@@ -49,30 +55,27 @@ public class SignInFilter extends HttpFilter implements Filter {
 	 * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
 	 */
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-		InitialContext payaraContext;
-		DataSource ds;
-		boolean exists = true; 
+
+	    boolean exists = true; 
 		try {
-			payaraContext = new InitialContext();
-			ds = (DataSource) payaraContext.lookup("jdbc/tiwds");
-	        Connection conn = ds.getConnection();	
-	        Statement st = conn.createStatement();
-			exists = st.executeQuery("SELECT userName FROM users where userName = '" + request.getParameter("userName") + "';").next();
-			st.close();
-        	conn.close();
-		}catch(SQLTimeoutException e) {
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+	        Client client = ClientBuilder.newClient();
+	        WebTarget webResource = client.target("http://localhost:10701").path("users")
+	                .path(request.getParameter("userName"));
+	        webResource.request().accept("application/json").get(User.class);
+	        
+	    } catch(NotFoundException e) {
+              exists = false;
+        
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
 		if(exists) {
-			request.setAttribute("wrongName", true);
-			request.getRequestDispatcher("signIn.jsp").forward(request, response);
-			return;
-		}
+            request.setAttribute("wrongName", true);
+            request.getRequestDispatcher("signIn.jsp").forward(request, response);
+            return;
+        }
+		
 		if(!request.getParameter("password").equals(request.getParameter("password2"))){
 			request.setAttribute("wrongPassword", true);
 			request.getRequestDispatcher("signIn.jsp").forward(request, response);
