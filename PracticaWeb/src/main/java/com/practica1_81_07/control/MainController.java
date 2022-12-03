@@ -24,9 +24,12 @@ import com.practica1_81_07.control.handlers.LogOutHandler;
 import com.practica1_81_07.control.handlers.SignInHandler;
 import com.practica1_81_07.control.handlers.NextEventsHandler;
 import com.practica1_81_07.control.handlers.ImagesHandler;
-/*
-import com.practica1_81_07.control.handlers.BuyTicketsHandler;
+import com.practica1_81_07.control.handlers.SearchHandler;
 import com.practica1_81_07.control.handlers.CreateEventHandler;
+import com.practica1_81_07.control.handlers.BuyTicketsHandler;
+/*
+
+
 import com.practica1_81_07.control.handlers.CreateTicketHandler;
 import com.practica1_81_07.control.handlers.CreateTicketPage;
 import com.practica1_81_07.control.handlers.DeleteEventHandler;
@@ -34,7 +37,7 @@ import com.practica1_81_07.control.handlers.DeleteEventHandler;
 import com.practica1_81_07.control.handlers.ModifyEventHandler;
 import com.practica1_81_07.control.handlers.ModifyEventPage;
 
-import com.practica1_81_07.control.handlers.SearchHandler;*/
+*/
 
 
 
@@ -63,9 +66,12 @@ public class MainController extends HttpServlet {
     	map.put("/signIn", new SignInHandler());
     	map.put("/nextEvents", new NextEventsHandler());
     	map.put("/getImage", new ImagesHandler());
-    	/*
-    	map.put("/createEvent", new CreateEventHandler());
     	map.put("/searchEvent", new SearchHandler());
+    	map.put("/createEvent", new CreateEventHandler());
+    	map.put("/buyTickets", new BuyTicketsHandler());
+    	/*
+    	
+    	
     	
     	
     	map.put("/deleteEvent", new DeleteEventHandler());
@@ -73,7 +79,7 @@ public class MainController extends HttpServlet {
     	map.put("/modifyEvent", new ModifyEventHandler());
     	map.put("/createTicketPage", new CreateTicketPage());
         map.put("/createTicket", new CreateTicketHandler());
-        map.put("/buyTickets", new BuyTicketsHandler());*/
+        */
         //asdfasdfsdafdasff  
         //nejhwehfuwefjwrufufnwe
         //terceraererfrf

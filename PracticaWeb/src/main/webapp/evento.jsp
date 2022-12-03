@@ -33,8 +33,8 @@
         </nav>
         <div class="containerfull">
         
-         	<img class="imagenBlur" src="/USER8107/getImage?name=${requestScope.currentEvent.id.name}&city=${requestScope.currentEvent.id.city}&date=${requestScope.currentEvent.id.date}">
-         	<img class="imagenEvento" src="/USER8107/getImage?name=${requestScope.currentEvent.id.name}&city=${requestScope.currentEvent.id.city}&date=${requestScope.currentEvent.id.date}">
+         	<img class="imagenBlur" src="/USER8107/getImage?name=${requestScope.currentEvent.name}&city=${requestScope.currentEvent.city}&date=${requestScope.currentEvent.date}">
+         	<img class="imagenEvento" src="/USER8107/getImage?name=${requestScope.currentEvent.name}&city=${requestScope.currentEvent.city}&date=${requestScope.currentEvent.date}">
          	
          	<div class="info">
          	<div id = ultimas-container-info>
@@ -42,17 +42,17 @@
 	            	<ul>
 	            		<li class = "fecha-evento-container">
 	            			<div>
-	            				<p id="fechaevento">${requestScope.currentEvent.id.date}</p>
+	            				<p id="fechaevento">${requestScope.currentEvent.date}</p>
 	            			</div>
 	            			
 	            		</li>
 	            		<li class = "info-evento-container">
-	                         <p>Ciudad: ${requestScope.currentEvent.id.city}</p>
+	                         <p>Ciudad: ${requestScope.currentEvent.city}</p>
 	                         <p>Sala: ${requestScope.currentEvent.room}</p>
 	                         <p>Categoría: ${requestScope.currentEvent.category}</p> 	            		
 	                     </li>
 	            		<li class = "titulo-evento-container">
-	                         <h2>${requestScope.currentEvent.id.name}</h2>
+	                         <h2>${requestScope.currentEvent.name}</h2>
 	            		</li>
 	            		
 	            	</ul>
@@ -64,7 +64,7 @@
         </div>
         <div id = "ultimas-experiencias" class = "container">
         	<c:if test = "${!empty sessionScope.currentUser}">
-        		<a href="/USER8107/createTicketPage?name=${requestScope.currentEvent.id.name}&city=${requestScope.currentEvent.id.city}&date=${requestScope.currentEvent.id.date}">
+        		<a href="/USER8107/createTicketPage?name=${requestScope.currentEvent.name}&city=${requestScope.currentEvent.city}&date=${requestScope.currentEvent.date}">
         			<button class = "stylebutton vender-ticket-button">VENDER TICKET</button>
         		</a>
         	</c:if>

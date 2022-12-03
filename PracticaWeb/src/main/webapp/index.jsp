@@ -27,7 +27,7 @@
   	<div id = "main-div">
   		<div id = "searh-container">
         <form id = "search-form" action="/USER8107/searchEvent" method="post" >
-          <input id="text-input" type="text" name="search" class="search-input" placeholder="Nombre del evento..." />
+          <input id="text-input" type="text" name="name" class="search-input" placeholder="Nombre del evento..." />
           <input id="city" name="city" type="text" class="search-input" placeholder="Ciudad..."/> 
           <input id="sala" name="room" type="text" class="search-input" placeholder="Sala o estadio..."/> 
           <input id="date" class="search-input" type="date" name="date">

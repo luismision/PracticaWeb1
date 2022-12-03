@@ -15,10 +15,13 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.ws.rs.NotFoundException;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.WebTarget;
 
 import com.practica1_81_07.model.Event;
 import com.practica1_81_07.model.User;
-import com.practica1_81_07.model.managers.ManagerEvent;
 
 
 /**
@@ -46,26 +49,21 @@ public class EventFilter extends HttpFilter {
             request.getRequestDispatcher("logIn.jsp").forward(request,response);
             return; 
         }
-        Event event_exist; 
         Date date;
-        ManagerEvent MnEvent  = new ManagerEvent();
         Date  now = Date.from(LocalDate.now().atStartOfDay().atZone(ZoneId.systemDefault()).toInstant()); 
         try {
-            date = (Date) new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("date"));
-            event_exist = MnEvent.findByPk(request.getParameter("name"), request.getParameter("city"), date);
-            if (event_exist != null) {
-                request.getRequestDispatcher("crearEvento.html").forward(request, response); 
-            }
-
+            date = (Date) new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("date"));  
             if(date.compareTo(now) < 0) {
                 request.getRequestDispatcher("crearEvento.html").forward(request,response);
                 return; 
             }
-        } catch(ParseException e) {
+            
+        }catch(ParseException e) {
             e.getStackTrace();
             request.getRequestDispatcher("crearEvento.html").forward(request, response);
             return; 
-        }        
+        }
+     
         chain.doFilter(request, response);
     }
 

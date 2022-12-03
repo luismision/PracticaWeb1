@@ -8,10 +8,13 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.WebTarget;
 
 import com.practica1_81_07.model.Event;
 import com.practica1_81_07.model.Ticket;
-import com.practica1_81_07.model.managers.ManagerEvent;
+
 
 
 
@@ -19,21 +22,15 @@ public class BuyTicketsHandler implements IHandler {
 
     @Override
     public String process(HttpServletRequest req, HttpServletResponse res) {
-        ManagerEvent MnEvent  = new ManagerEvent();
-        Date date;
-        Event event;
+        Client client = ClientBuilder.newClient();
+        WebTarget webResource = client.target("http://localhost:10702").path("events").path(req.getParameter("id"));
         
         try {
-            date = (Date) new SimpleDateFormat("dd-MM-yyyy").parse(req.getParameter("date"));
-            event = MnEvent.findByPk(req.getParameter("name"), req.getParameter("city"), date);
+            Event event =  webResource.request().accept("application/json").get(Event.class);
             req.setAttribute("currentEvent", event);
             
             return "evento.jsp";
-        } catch (ParseException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-            
-        } catch(Exception e) {
+        }  catch(Exception e) {
             e.printStackTrace(); 
         }
         return "evento.jsp";

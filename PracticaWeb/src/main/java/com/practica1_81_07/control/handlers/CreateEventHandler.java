@@ -9,38 +9,48 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.MediaType;
+
+import org.eclipse.persistence.internal.oxm.conversion.Base64;
 
 import com.practica1_81_07.model.Event;
-import com.practica1_81_07.model.EventPK;
-import com.practica1_81_07.model.managers.ManagerEvent;
-import com.practica1_81_07.model.managers.ManagerUser;
+import com.practica1_81_07.model.User;
+
 
 public class CreateEventHandler implements IHandler{
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) {
-		Event event = new Event();
-		EventPK eventPk = new EventPK();
-		ManagerEvent MnEvent  = new ManagerEvent();
-		
+	    Client client = ClientBuilder.newClient();
+        WebTarget webResource = client.target("http://localhost:10702").path("events");
+		Event event = null;
 		
 	    try {          
-	        
+	        event = new Event();
 	        Part filePart = req.getPart("imagen");
 	        if (!filePart.getContentType().startsWith("image")) {
 	            return "crearEvento.html"; 
 	        }
 	        byte[] data = new byte[(int) filePart.getSize()];
-			eventPk.setName(req.getParameter("name"));
-			eventPk.setCity(req.getParameter("city"));
-			eventPk.setDate(req.getParameter("date"));
-			event.setId(eventPk);
+	        
+			event.setName(req.getParameter("name"));
+			event.setCity(req.getParameter("city"));
+			event.setDate(req.getParameter("date"));
+			
 		    event.setCategory(req.getParameter("category"));
 		    event.setRoom(req.getParameter("room"));
 		    event.setDescription(req.getParameter("description"));
-			filePart.getInputStream().read(data, 0, data.length);	
-			event.setImagen(data);
-			MnEvent.insert(event);
+			filePart.getInputStream().read(data, 0, data.length);
+			
+            //byte[] encodeBase64 = Base64.getEncoder().encode(data);
+			//event.setImagen(data2);
+			
+			webResource.request("application/json").accept("application/json").post(Entity.entity(event,MediaType.APPLICATION_JSON),Event.class);
+			
 			
 	    } catch (ParseException e) {
             // TODO Auto-generated catch block

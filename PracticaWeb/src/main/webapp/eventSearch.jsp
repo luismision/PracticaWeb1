@@ -40,7 +40,7 @@
             <div id = "ultimas-container">
 				<div id = "search-container">
 					<form id = "search-form" action="/USER8107/searchEvent" method="post" >
-			          <input id="text-input" type="text" name="search" class="search-input" placeholder="Nombre del evento..." />
+			          <input id="text-input" type="text" name="name" class="search-input" placeholder="Nombre del evento..." />
 			          <input id="city" name="city" type="text" class="search-input" placeholder="Ciudad..."/> 
 			          <input id="sala" name="room" type="text" class="search-input" placeholder="Sala o estadio..."/> 
 			          <input id="date" class="search-input" type="date" name="date">
@@ -76,14 +76,14 @@
 	            		<c:choose>
 							  <c:when test="${sessionScope.currentUser.userName == 'admin'}">
 							  	<li class = "button-evento-container">
-			            			<a href="/USER8107/buyTickets?name=${event.name}&city=${event.city}&date=${event.date}"><button class = "stylebutton visitar-exp-admin">COMPRAR ENTRADAS</button></a>
-			            			<a href="/USER8107/modifyEventPage?name=${event.name}&city=${event.city}&date=${event.date}"><button class = "stylebutton visitar-exp-admin">MODIFICAR EVENTO</button></a>
-			            			<a href="/USER8107/deleteEvent?name=${event.name}&city=${event.city}&date=${event.date}"><button class = "stylebutton visitar-exp-admin">ELIMINAR EVENTO</button></a>
+			            			<a href="/USER8107/buyTickets?id=${event.id}"><button class = "stylebutton visitar-exp-admin">COMPRAR ENTRADAS</button></a>
+			            			<a href="/USER8107/modifyEventPage?id=${event.id}"><button class = "stylebutton visitar-exp-admin">MODIFICAR EVENTO</button></a>
+			            			<a href="/USER8107/deleteEvent?id=${event.id}"><button class = "stylebutton visitar-exp-admin">ELIMINAR EVENTO</button></a>
 	            				</li>
 							  </c:when>
 							  <c:otherwise>
 							   	<li class = "button-evento-container">
-	            					<a href="/USER8107/buyTickets?name=${event.name}&city=${event.city}&date=${event.date}"><button class = "stylebutton visitar-exp">COMPRAR ENTRADAS</button></a>
+	            					<a href="/USER8107/buyTickets?id=${event.id}"><button class = "stylebutton visitar-exp">COMPRAR ENTRADAS</button></a>
 	            				</li>
 							  </c:otherwise>
 						</c:choose>

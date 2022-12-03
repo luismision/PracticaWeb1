@@ -18,6 +18,7 @@ public class NextEventsHandler implements IHandler{
     public String process(HttpServletRequest req, HttpServletResponse res) {
         Client client = ClientBuilder.newClient();
         WebTarget webResource = client.target("http://localhost:10702").path("events");
+                
         Event[] eventList =  webResource.request().accept("application/json").get(Event[].class);
         req.setAttribute("eventList", eventList);
         return "eventSearch.jsp"; 
