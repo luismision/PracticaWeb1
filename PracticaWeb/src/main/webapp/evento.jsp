@@ -33,8 +33,8 @@
         </nav>
         <div class="containerfull">
         
-         	<img class="imagenBlur" src="/USER8107/getImage?name=${requestScope.currentEvent.name}&city=${requestScope.currentEvent.city}&date=${requestScope.currentEvent.date}">
-         	<img class="imagenEvento" src="/USER8107/getImage?name=${requestScope.currentEvent.name}&city=${requestScope.currentEvent.city}&date=${requestScope.currentEvent.date}">
+         	<img class="imagenBlur" src="/USER8107/getImage?id=${requestScope.currentEvent.id}">
+         	<img class="imagenEvento" src="/USER8107/getImage?id=${requestScope.currentEvent.id}">
          	
          	<div class="info">
          	<div id = ultimas-container-info>

@@ -131,7 +131,7 @@ public class Event implements Serializable {
 
 	public Ticket addTicket(Ticket ticket) {
 		getTickets().add(ticket);
-		ticket.setEvent(this);
+		//ticket.setEvent(this);
 
 		return ticket;
 	}
