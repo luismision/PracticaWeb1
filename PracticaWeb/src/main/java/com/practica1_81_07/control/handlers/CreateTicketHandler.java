@@ -42,20 +42,17 @@ public class CreateTicketHandler implements IHandler{
         User user = (User) session.getAttribute("currentUser");
         
         Ticket ticket = new Ticket();
-        Date date;
-        
-        User user2;
         try {
             Event event =  webResource_events.request().accept("application/json").get(Event.class);
             ticket.setType(req.getParameter("type"));
             BigDecimal prize = new BigDecimal(req.getParameter("prize"));
-            List<Ticket> listavacia = new ArrayList<Ticket>();
-            user.setTickets(listavacia);
+            //List<Ticket> listavacia = new ArrayList<Ticket>();
+            //user.setTickets(listavacia);
             ticket.setPrize(prize);
             ticket.setEvent(event);
             ticket.setUser(user);
             
-            Ticket result =  webResource_tickets.request("application/json").accept("application/json").post(Entity.entity(ticket,MediaType.APPLICATION_JSON),Ticket.class);
+            webResource_tickets.request("application/json").accept("application/json").post(Entity.entity(ticket,MediaType.APPLICATION_JSON),Ticket.class);
         }  catch(Exception e) {
             e.printStackTrace(); 
         }

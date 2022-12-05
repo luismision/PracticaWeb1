@@ -45,7 +45,7 @@ public class EventFilter extends HttpFilter {
         HttpSession session;
         session = ((HttpServletRequest) request).getSession(); 
         User user = (User) session.getAttribute("currentUser");
-        if (user == null || !user.getUserName().equals("admin")) {
+        if (user == null || !user.getUsername().equals("admin")) {
             request.getRequestDispatcher("logIn.jsp").forward(request,response);
             return; 
         }

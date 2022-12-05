@@ -34,11 +34,11 @@ public class User implements Serializable {
 	public User() {
 	}
 
-	public String getUserName() {
+	public String getUsername() {
 		return this.username;
 	}
 
-	public void setUserName(String username) {
+	public void setUsername(String username) {
 		this.username = username;
 	}
 
@@ -50,11 +50,11 @@ public class User implements Serializable {
 		this.address = address;
 	}
 
-	public String getFullName() {
+	public String getFullname() {
 		return this.fullname;
 	}
 
-	public void setFullName(String fullname) {
+	public void setFullname(String fullname) {
 		this.fullname = fullname;
 	}
 

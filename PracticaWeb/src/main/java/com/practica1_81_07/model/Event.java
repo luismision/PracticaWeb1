@@ -75,7 +75,7 @@ public class Event implements Serializable {
     }
 
     public void setDate(String date) throws ParseException { 
-        java.util.Date date1 = new SimpleDateFormat("yyyy-MM-dd").parse(date);  
+        java.util.Date date1 = new SimpleDateFormat("dd-MM-yyyy").parse(date);  
         this.date = date1;
     }
 

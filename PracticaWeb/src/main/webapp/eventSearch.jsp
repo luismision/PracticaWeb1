@@ -23,7 +23,7 @@
                 </li> 
                 <li id = "sesion_container">
                 	<ul>
-	               		<li id = "username_container"><c:if test = "${!empty sessionScope.currentUser}"> <h2><c:out value="${sessionScope.currentUser.userName}"/></h2></c:if></li>
+	               		<li id = "username_container"><c:if test = "${!empty sessionScope.currentUser}"> <h2><c:out value="${sessionScope.currentUser.username}"/></h2></c:if></li>
 	                	<li id = "log_out_button_container"><c:if test = "${!empty sessionScope.currentUser}"><a href = "/USER8107/logOut"><button id = "log_out_button" class = "stylebutton">CERRAR SESIÓN</button></a></c:if></li>
                 	</ul> 
                     <c:if test = "${empty sessionScope.currentUser}"> <a href = "/USER8107/logIn.jsp"><button id = "log_in_button" class = "stylebutton">INICIAR SESIÓN</button></a></c:if>		  
@@ -33,7 +33,7 @@
         <div id = "ultimas-experiencias" class = "container">
         	<div id = proximos-container>
 	            <h1>PROXIMOS EVENTOS</h1>
-	            <c:if test="${sessionScope.currentUser.userName == 'admin'}">
+	            <c:if test="${sessionScope.currentUser.username == 'admin'}">
 	            	<a href="crearEvento.html"><button  class = "stylebutton añadir-evento-boton">AÑADIR EVENTO</button></a>
 	            </c:if>
        		</div>
@@ -74,7 +74,7 @@
 	                         <p>Fecha: ${event.date}</p> 
 	            		</li>
 	            		<c:choose>
-							  <c:when test="${sessionScope.currentUser.userName == 'admin'}">
+							  <c:when test="${sessionScope.currentUser.username == 'admin'}">
 							  	<li class = "button-evento-container">
 			            			<a href="/USER8107/buyTickets?id=${event.id}"><button class = "stylebutton visitar-exp-admin">COMPRAR ENTRADAS</button></a>
 			            			<a href="/USER8107/modifyEventPage?id=${event.id}"><button class = "stylebutton visitar-exp-admin">MODIFICAR EVENTO</button></a>
