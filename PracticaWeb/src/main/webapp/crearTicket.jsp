@@ -22,7 +22,7 @@
           <div class="login-wrapper my-auto">
             <h1 class="login-title">Vender ticket</h1>
             <c:if test = "${!empty requestScope.wrongCredentials}"> Credenciales introducidos incorrectos. Intentelo de nuevo<br></c:if> 
-            <form action="/USER8107/createTicket?name=${requestScope.currentEvent.id.name}&city=${requestScope.currentEvent.id.city}&date=${requestScope.currentEvent.id.date}" method = "post">
+            <form action="/USER8107/createTicket?id=${requestScope.currentEvent.id}" method = "post">
               
               <div class="form-group">
                 <label for="prize">Precio</label>

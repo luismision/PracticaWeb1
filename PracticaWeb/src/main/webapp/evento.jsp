@@ -64,7 +64,7 @@
         </div>
         <div id = "ultimas-experiencias" class = "container">
         	<c:if test = "${!empty sessionScope.currentUser}">
-        		<a href="/USER8107/createTicketPage?name=${requestScope.currentEvent.name}&city=${requestScope.currentEvent.city}&date=${requestScope.currentEvent.date}">
+        		<a href="/USER8107/createTicketPage?id=${requestScope.currentEvent.id}">
         			<button class = "stylebutton vender-ticket-button">VENDER TICKET</button>
         		</a>
         	</c:if>
