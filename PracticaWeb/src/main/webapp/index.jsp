@@ -20,6 +20,7 @@
   	  <a href = "/USER8107/logIn.jsp"><button id = "log_in_button" class = "stylebutton log_in_out_button">INICIAR SESIÓN</button></a>
     </c:if>
   	<c:if test = "${!empty sessionScope.currentUser}">
+  	  <a href = "/USER8107/chat"><button id = "chat_button" class = "stylebutton">CHAT</button></a>
       <h2 id="username">${sessionScope.currentUser.username}</h2>
       <a href="/USER8107/logOut"><button id = "log_out_button" class = "stylebutton log_in_out_button">CERRAR SESIÓN</button></a>
     </c:if>

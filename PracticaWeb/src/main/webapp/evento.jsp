@@ -24,6 +24,7 @@
                 </li> 
                 <li id = "sesion_container">
                 	<ul>
+                		<li id = "chat_button_container"><c:if test = "${!empty sessionScope.currentUser}"><a href = "/USER8107/chat"><button id = "chat_button" class = "stylebutton">CHAT</button></a></c:if></li>
 	               		<li id = "username_container"><c:if test = "${!empty sessionScope.currentUser}"> <h2><c:out value="${sessionScope.currentUser.username}"/></h2></c:if></li>
 	                	<li id = "log_out_button_container"><c:if test = "${!empty sessionScope.currentUser}"><a href = "/USER8107/logOut"><button id = "log_out_button" class = "stylebutton">CERRAR SESIÓN</button></a></c:if></li>
                 	</ul> 
@@ -87,7 +88,7 @@
 		                         <h2>Tipo: ${ticket.type}</h2>
 		            		</li>
 		            		<li class = "button-evento-container">
-		            			<button class = "stylebutton visitar-exp-admin">COMPRAR</button>
+		            			<a href = "/USER8107/chat?userdest=${ticket.user.username}"><button class = "stylebutton visitar-exp-admin">CONTACTAR PROPIETARIO</button></a>
 		            			
 		            		</li>
 		            	</ul>

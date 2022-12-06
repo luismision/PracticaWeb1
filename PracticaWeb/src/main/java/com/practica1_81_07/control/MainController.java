@@ -29,6 +29,7 @@ import com.practica1_81_07.control.handlers.CreateEventHandler;
 import com.practica1_81_07.control.handlers.BuyTicketsHandler;
 import com.practica1_81_07.control.handlers.ChatHandler;
 import com.practica1_81_07.control.handlers.CreateTicketPage;
+import com.practica1_81_07.control.handlers.EnviarMensajeHandler;
 import com.practica1_81_07.control.handlers.CreateTicketHandler;
 /*
 
@@ -47,7 +48,7 @@ import com.practica1_81_07.control.handlers.ModifyEventPage;
 /**
  * Servlet implementation class MainController
  */
-@WebServlet({"/logIn", "/logOut","/signIn", "/logInPage", "/signInPage","/createEvent","/searchEvent", "/nextEvents","/getImage", "/deleteEvent", "/modifyEventPage", "/modifyEvent", "/createTicketPage", "/createTicket", "/buyTickets", "/chat"})
+@WebServlet({"/logIn", "/logOut","/signIn", "/logInPage", "/signInPage","/createEvent","/searchEvent", "/nextEvents","/getImage", "/deleteEvent", "/modifyEventPage", "/modifyEvent", "/createTicketPage", "/createTicket", "/buyTickets", "/chat", "/enviarmensaje"})
 @MultipartConfig
 public class MainController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -75,6 +76,7 @@ public class MainController extends HttpServlet {
     	map.put("/createTicketPage", new CreateTicketPage());
     	map.put("/createTicket", new CreateTicketHandler());
     	map.put("/chat", new ChatHandler());
+    	map.put("/enviarmensaje", new EnviarMensajeHandler());
     	/*
     	
     	

@@ -434,7 +434,7 @@ html, body {
 }
 
 #search_container{
-    width: 45%;
+    width: 35%;
     height: 63px;
     padding: 14px 15px;    
     
@@ -483,7 +483,7 @@ html, body {
 /*-------------------- Sesion --------------------*/
 #sesion_container{
     height: 63px;
-    width: 27.5%;
+    width: 37.5%;
     padding: 8px;
     padding-right: 5vw;
     
@@ -502,13 +502,15 @@ html, body {
 }
 #sesion_container #log_out_button_container{
     font-family: Poppins;
-    padding-left: 15vw;
+    margin-left: 26vw;
     position: absolute;
 }
 #sesion_container #log_out_button{
     width: 7vw;
 }
-
+#username_container{
+	margin-left: 2vw;
+}
 
 
 

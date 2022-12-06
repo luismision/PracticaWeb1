@@ -23,6 +23,7 @@
                 </li> 
                 <li id = "sesion_container">
                 	<ul>
+                		<li id = "chat_button_container"><c:if test = "${!empty sessionScope.currentUser}"><a href = "/USER8107/chat"><button id = "chat_button" class = "stylebutton">CHAT</button></a></c:if></li>
 	               		<li id = "username_container"><c:if test = "${!empty sessionScope.currentUser}"> <h2><c:out value="${sessionScope.currentUser.username}"/></h2></c:if></li>
 	                	<li id = "log_out_button_container"><c:if test = "${!empty sessionScope.currentUser}"><a href = "/USER8107/logOut"><button id = "log_out_button" class = "stylebutton">CERRAR SESIÓN</button></a></c:if></li>
                 	</ul> 
@@ -33,9 +34,6 @@
         <div id = "ultimas-experiencias" class = "container">
         	<div id = proximos-container>
 	            <h1>PROXIMOS EVENTOS</h1>
-	            <c:if test="${sessionScope.currentUser.username == 'admin'}">
-	            	<a href="crearEvento.html"><button  class = "stylebutton añadir-evento-boton">AÑADIR EVENTO</button></a>
-	            </c:if>
        		</div>
             <div id = "ultimas-container">
 				<div id = "search-container">
@@ -73,20 +71,11 @@
 	                         <p>Sala: ${event.room}</p>
 	                         <p>Fecha: ${event.date}</p> 
 	            		</li>
-	            		<c:choose>
-							  <c:when test="${sessionScope.currentUser.username == 'admin'}">
-							  	<li class = "button-evento-container">
-			            			<a href="/USER8107/buyTickets?id=${event.id}"><button class = "stylebutton visitar-exp-admin">COMPRAR ENTRADAS</button></a>
-			            			<a href="/USER8107/modifyEventPage?id=${event.id}"><button class = "stylebutton visitar-exp-admin">MODIFICAR EVENTO</button></a>
-			            			<a href="/USER8107/deleteEvent?id=${event.id}"><button class = "stylebutton visitar-exp-admin">ELIMINAR EVENTO</button></a>
-	            				</li>
-							  </c:when>
-							  <c:otherwise>
-							   	<li class = "button-evento-container">
-	            					<a href="/USER8107/buyTickets?id=${event.id}"><button class = "stylebutton visitar-exp">COMPRAR ENTRADAS</button></a>
-	            				</li>
-							  </c:otherwise>
-						</c:choose>
+
+					   	<li class = "button-evento-container">
+           					<a href="/USER8107/buyTickets?id=${event.id}"><button class = "stylebutton visitar-exp">COMPRAR ENTRADAS</button></a>
+           				</li>
+
 	            	</ul>
             	</div>
 				</c:forEach> 
