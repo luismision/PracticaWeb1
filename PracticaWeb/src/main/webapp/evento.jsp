@@ -38,7 +38,7 @@
          	<img class="imagenEvento" src="/USER8107/getImage?id=${requestScope.currentEvent.id}">
          	
          	<div class="info">
-         	<div id = ultimas-container-info>
+         	<div id = "ultimas-container-info">
          	<div id = "caracteristicas">
 	            	<ul>
 	            		<li class = "fecha-evento-container">
