@@ -24,7 +24,7 @@ public class SearchHandler implements IHandler{
     public String process(HttpServletRequest req, HttpServletResponse res) {
         // TODO Auto-generated method stub
         Client client = ClientBuilder.newClient();  
-        WebTarget webResource = client.target("http://localhost:10702").path("avanzada")
+        WebTarget webResource = client.target("http://localhost:10702").path("/events/search")
                 .queryParam("name", req.getParameter("name"))
                 .queryParam("city", req.getParameter("city"))
                 .queryParam("category", req.getParameter("category"))
