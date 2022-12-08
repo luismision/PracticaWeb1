@@ -77,20 +77,7 @@ public class MainController extends HttpServlet {
     	map.put("/createTicket", new CreateTicketHandler());
     	map.put("/chat", new ChatHandler());
     	map.put("/enviarmensaje", new EnviarMensajeHandler());
-    	/*
-    	
-    	
-    	
-    	
-    	map.put("/deleteEvent", new DeleteEventHandler());
-    	map.put("/modifyEventPage", new ModifyEventPage());
-    	map.put("/modifyEvent", new ModifyEventHandler());
-    	
-        
-        */
-        //asdfasdfsdafdasff  
-        //nejhwehfuwefjwrufufnwe
-        //terceraererfrf
+
 
     }
     
