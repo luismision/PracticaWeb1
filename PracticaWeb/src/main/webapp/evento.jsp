@@ -88,7 +88,7 @@
 		                         <h2>Tipo: ${ticket.type}</h2>
 		            		</li>
 		            		<li class = "button-evento-container">
-		            			<a href = "/USER8107/chat?userdest=${ticket.user.username}"><button class = "stylebutton visitar-exp-admin">CONTACTAR PROPIETARIO</button></a>
+		            			<c:if test = "${!empty sessionScope.currentUser}"><a href = "/USER8107/chat?userdest=${ticket.user.username}"><button class = "stylebutton visitar-exp-admin">CONTACTAR PROPIETARIO</button></a></c:if>		
 		            			
 		            		</li>
 		            	</ul>
